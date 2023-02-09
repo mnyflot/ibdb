@@ -7,6 +7,6 @@ export default class UserPage extends Component {
 
     //{this.props.name}
     render() {
-        return <h1>Hi user! </h1>;
+        return <h1>Hi user! Jalla!!!</h1>;
     }
 }
