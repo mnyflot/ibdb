@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Routes, Route, Link, Redirect, } from "react-router-dom";
 import LogInPage from "./LogInPage";
 import UserPage from "./UserPage";
-
+//import LogInButton from "./LogInButton";
 //import LogInButton from "./LogInButton.js";
 
 
@@ -11,12 +11,16 @@ export class HomePage extends Component {
         super(props);
     }
 
-
     render() {
         return (
           <div>
             <div className="headerSite">
                 <p>IMDBd</p>
+                <div className="logInButtonDiv">
+                    <a href="/log-in" >
+                    <button className="logInButton" id="logInButton">Log In</button>
+                </a>
+                </div> 
             </div>
             <div>
               <BrowserRouter>
@@ -29,13 +33,7 @@ export class HomePage extends Component {
             </div>
             
             <div>
-                <div className="logInButton">
-                    {/* <LogInButton></LogInButton> */}
-                    <a href="/log-in" >
-                    <button id="logInButton">Log In</button>
-                </a>
-                </div>
-                
+                           
             </div>
           </div>
         );

@@ -25,25 +25,35 @@ html, body {
 }
 
 .form {
-    background-color: #BDCDD6;
-    padding: 2pt;
-    border-radius: 4%;
-    width: 400px;
-    height: 200px;
+    border-style: double;
+    border-width: 2px;
+
+    border-color: #BDCDD6 ;
+    padding: 10pt;
+    border-radius: 0%;
 }
 
 
 .headerSite{
     height: 70px;
     width: 100%;
+    border-style: dotted;
     background-color: #BDCDD6;
     top: 0;
-    
+    position: relative;
 }
 
-.logInFormButton{
-    margin-top: 10px;
+.logInButton{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    position: relative;
+    left: 95%;
+    position:absolute;
+    top: 50%;
+
 }
+
 
 .headline{
     text-align: center;

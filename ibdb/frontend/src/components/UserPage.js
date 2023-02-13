@@ -8,7 +8,7 @@ export class UserPage extends Component {
     render() {
         return (
             <div className="headline">
-                <h1>Hi user! Jalla!!!</h1>;
+                <h1>Hi user! Jalla!!!</h1>
             </div>
         ) 
     }
