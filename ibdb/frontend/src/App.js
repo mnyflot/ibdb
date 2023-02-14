@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./components/HomePage";
-import LogInPage from "./LogInPage";
-import UserPage from "./UserPage";
+import LogInPage from "./components/UserPage";
+import UserPage from "./components/LogInPage";
 
 export default class App extends Component {
     constructor(props) {
