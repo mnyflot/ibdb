@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LogInButton extends Component() {
+class LogInButton extends Component {
     constructor(props) {
         super(props);
     }
@@ -9,7 +9,7 @@ class LogInButton extends Component() {
         return (
             <div className='loginButton'>
                 <a href="/log-in">
-                    <button type="button">Log In!!</button>
+                    <button type="button">Log In</button>
                 </a>
             </div>
         );

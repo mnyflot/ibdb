@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-//import LogInButton from "./LogInButton";
-//import LogInButton from "./LogInButton.js";
+import SearchBar from "./SearchBar";
+import LogInButton from "./LogInButton";
 
 
 export class HomePage extends Component {
@@ -13,10 +13,11 @@ export class HomePage extends Component {
           <div>
             <div className="headerSite">
                 <p>IMDBd</p>
+                <div className="searchBarDiv">
+                    <SearchBar/>
+                </div>
                 <div className="logInButtonDiv">
-                    <a href="/log-in" >
-                    <button className="logInButton" id="logInButton">Log In</button>
-                </a>
+                    <LogInButton/>
                 </div> 
             </div>
           </div>
