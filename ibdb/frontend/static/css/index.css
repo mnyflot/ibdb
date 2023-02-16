@@ -37,19 +37,25 @@ html, body {
 .headerSite{
     height: 70px;
     width: 100%;
-    border-style: dotted;
     background-color: #BDCDD6;
+    position: absolute;
     top: 0;
-    position: relative;
+}
+
+.searchBar{
+    background-color: white;
+    color: black;
+    position:absolute;
+    left: 50%;
+    top: 50%
+
 }
 
 .logInButton{
     background-color: white; 
     color: black; 
-    border: 2px solid #008CBA;
-    position: relative;
-    left: 95%;
     position:absolute;
+    left: 95%;
     top: 50%;
 
 }
