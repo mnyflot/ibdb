@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import { BrowserRouter, Routes, Route, Link, Redirect, } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import UserPage from "./components/UserPage";
+import LogInPage from "./components/LogInPage";
 
 export default class App extends Component {
     constructor(props) {
@@ -9,9 +12,15 @@ export default class App extends Component {
 
     render() {
         return (
-        <div>
-            <HomePage />
-        </div>);
+            <div>
+              <BrowserRouter>
+                <Routes>
+                  <Route exact path="/" element={<HomePage />} />
+                  <Route path="/user" element={<UserPage />} />
+                  <Route path="/log-in" element={<LogInPage />} />
+                 </Routes>
+              </BrowserRouter>
+            </div>);
     }
 }
 
