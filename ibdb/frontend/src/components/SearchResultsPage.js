@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import LogInButton from "./LogInButton";
+import { useParams } from "react-router-dom";
 
 
-export class HomePage extends Component {
+export class SearchResultsPage extends Component {
     constructor(props) {
         super(props);
+        let params = useParams();
+        console.log(params);
+        this.search = params.search;
     }
 
     render() {
@@ -20,10 +24,15 @@ export class HomePage extends Component {
                     <LogInButton/>
                 </div> 
             </div>
+            <div className="searchResultsDiv">
+                <div>
+                    <p>Search results for "{this.search}"</p>
+                </div>
+            </div>
           </div>
         );
         
     }    
         
 }
-export default HomePage;
+export default SearchResultsPage;
