@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 //import LogInButton from "./LogInButton";
 //import LogInButton from "./LogInButton.js";
+import Header from "./Header.js";
+import LogInButton from "./LogInButton.js";
 
 
 export class HomePage extends Component {
@@ -11,13 +13,16 @@ export class HomePage extends Component {
     render() {
         return (
           <div>
+            <div>                    
+                <Header/>
+            </div>
             <div className="headerSite">
-                <p>IMDBd</p>
+                <p>IDBd</p>
                 <div className="logInButtonDiv">
-                    <a href="/log-in" >
-                    <button className="logInButton" id="logInButton">Log In</button>
-                </a>
-                </div> 
+                    <LogInButton/>
+                </div>  
+            </div>
+            <div>
             </div>
           </div>
         );

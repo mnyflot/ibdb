@@ -6,9 +6,6 @@ html, body {
     color: black;
     background-color: #ffffff;
     position: relative;
-
-
-
 }
 
 #main {
@@ -24,39 +21,85 @@ html, body {
     height: 100%;
 }
 
-.form {
-    border-style: double;
-    border-width: 2px;
+/* Default CSS */
 
-    border-color: #BDCDD6 ;
-    padding: 10pt;
-    border-radius: 0%;
+.buttonDefault{
+    background-color: white;
+    color: black;
+    border: 1px solid #6096B4;
+    border-radius: 4px;
+    height: 30px;
+    width: fit-content;
+    margin: 3px;
+    /*position*/
+}
+
+.buttonDefault:hover{
+    background-color:#6096B4;
 }
 
 
-.headerSite{
-    height: 70px;
-    width: 100%;
-    border-style: dotted;
-    background-color: #BDCDD6;
-    top: 0;
-    position: relative;
-}
-
-.logInButton{
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
-    position: relative;
-    left: 95%;
-    position:absolute;
+/* Log-in page */
+.form{
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    position: fixed;
+    padding: 10px;
     top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
 
+#formButton{
+    width: 90%;
+    height: 30px;
+    margin: 10px;
+    align-items: center;
+}
+
+#registerNewUserButton{
+    border-style: none;
+    background-color: white;
+    color: black;
+    text-decoration-color: black;
+    
+}
+
+#registerNewUserButton:hover{
+    text-decoration: underline;
+    color: blue;
+    text-decoration-color: blue;
+}
+
+.loginInputField{
+    width: 90%;
+    height: 30px;
+    margin: 10px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.signInText{
+    text-align: center;
 }
 
 
-.headline{
-    text-align: center;
+/* Header */
+
+.header{
+    height: 50px;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #6096B4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+
 }
 
 
