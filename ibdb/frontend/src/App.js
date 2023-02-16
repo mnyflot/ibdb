@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { BrowserRouter, Routes, Route, Link, Redirect, } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import LogInPage from "./components/LogInPage";
+import { SearchResultsPage } from "./components/SearchResultsPage";
 import UserPage from "./components/UserPage";
 
 export default class App extends Component {
@@ -18,6 +19,7 @@ export default class App extends Component {
                   <Route exact path="/" element={<HomePage />} />
                   <Route path="/user" element={<UserPage />} />
                   <Route path="/log-in" element={<LogInPage />} />
+                  <Route path="/search/:search" element={<SearchResultsPage />} />
                  </Routes>
               </BrowserRouter>
             </div>);

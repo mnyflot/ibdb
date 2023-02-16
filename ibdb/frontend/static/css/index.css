@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -28,13 +29,13 @@ html, body {
     border-style: double;
     border-width: 2px;
 
-    border-color: #BDCDD6 ;
+    border-color: #BDCDD6;
     padding: 10pt;
     border-radius: 0%;
 }
 
 
-.headerSite{
+.headerSite {
     height: 70px;
     width: 100%;
     background-color: #BDCDD6;
@@ -42,28 +43,33 @@ html, body {
     top: 0;
 }
 
-.searchBar{
-    background-color: white;
-    color: black;
-    position:absolute;
-    left: 50%;
-    top: 50%
+
+.searchResultsDiv {
+    width: 100%;
+    position: absolute;
+    top: 1;
 
 }
 
-.logInButton{
-    background-color: white; 
-    color: black; 
-    position:absolute;
+
+.searchBar {
+    background-color: white;
+    color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%
+}
+
+.logInButton {
+    background-color: white;
+    color: black;
+    position: absolute;
     left: 95%;
     top: 50%;
 
 }
 
 
-.headline{
+.headline {
     text-align: center;
 }
-
-
-
