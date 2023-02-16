@@ -12,7 +12,7 @@ export class HomePage extends Component {
         return (
           <div>
             <div className="headerSite">
-                <p>IMDBd</p>
+                <h1>IBDb</h1>
                 <div className="searchBarDiv">
                     <SearchBar/>
                 </div>
