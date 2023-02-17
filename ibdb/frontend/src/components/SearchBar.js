@@ -11,7 +11,6 @@ class SearchBar extends Component {
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
-        console.log(this.state.search);
     }
 
     handleSubmit(event) {
@@ -19,9 +18,7 @@ class SearchBar extends Component {
         let search = this.state.search
         search = search.split(" ");
         search = search.join("+");
-        console.log(search);
         search = "/search=" + search;
-        console.log(search);
         window.location.href=search;
     }
 

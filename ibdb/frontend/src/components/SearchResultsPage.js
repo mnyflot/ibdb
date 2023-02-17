@@ -1,20 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import SearchBar from "./SearchBar";
 import LogInButton from "./LogInButton";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 
+const SearchResultsPage = () => {
+    //const { searchParams } = useParams();
+    //let queryText = searchParams.searchPhrase;
+    //console.log(queryText);
 
-export class SearchResultsPage extends Component {
-    constructor(props) {
-        super(props);
-        let params = useParams();
-        console.log(params);
-        this.search = params.search.split("+");
-    }
-
-    render() {
-        return (
-          <div>
+    return (
+        <div>
             <div className="headerSite">
                 <h1>IBDb</h1>
                 <div className="searchBarDiv">
@@ -26,13 +21,11 @@ export class SearchResultsPage extends Component {
             </div>
             <div className="searchResultsDiv">
                 <div>
-                    <p>Search results for "{this.search}"</p>
+                    <p>Search results for ""</p>
                 </div>
             </div>
-          </div>
+        </div>
         );
-        
-    }    
-        
-}
+};
+
 export default SearchResultsPage;
