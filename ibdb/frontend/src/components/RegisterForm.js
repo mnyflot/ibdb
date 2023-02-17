@@ -28,30 +28,29 @@ export class RegisterForm extends Component {
 
     render() {
         return (
-            <div >
+            <div className="loginForm">
                 <div>
-                    <h3>Register new user</h3>
+                    <h3 className="signInText">Register new user</h3>
                 </div>
                 <div >
                     <form onSubmit={this.handleRegisterSubmit} >
                         <div className="input-container">
-                            <p>Username or email</p>
                             <input
-                                type ="text" name="newUsername"  value={this.state.newUsername}  onChange={this.handleRegisterChange} placeholder="username" required>
+                                className = "loginInputField" type ="text" name="newUsername"  value={this.state.newUsername}  onChange={this.handleRegisterChange} placeholder="Email address*" required>
                             </input>
                         </div>
                         <div>
-                            <p>Password</p>
                             <input
-                                type="password" name="newpassword" value={this.state.newpassword} onChange={this.handleRegisterChange} placeholder="******" required>
+                                className = "loginInputField" type="password" name="newpassword" value={this.state.newpassword} onChange={this.handleRegisterChange} placeholder="Password*" required>
                             </input>
-                            <p>Confirm password</p>
+                        </div>
+                        <div>    
                             <input
-                                type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} onChange={this.handleRegisterChange} placeholder="******" required>
+                                className = "loginInputField" type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} onChange={this.handleRegisterChange} placeholder="Confirm Password*" required>
                             </input>
                         </div>
                         <div> 
-                            <button type ="submit" className="RegisterUserButton" id="RegisterNewUserButton"> Register</button>
+                            <button type ="submit" className="buttonDefault" id="formButton">Sign up</button>
                         </div>            
                     </form>
                 </div>

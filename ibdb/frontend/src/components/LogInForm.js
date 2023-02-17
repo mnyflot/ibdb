@@ -24,26 +24,24 @@ export class LogInForm extends Component {
         
     render() {
         return (
-            <div >
+            <div className = "loginForm">
                 <div>
-                    <h3>Please login here!</h3>
+                    <h3 className="signInText">Sign in</h3>
                 </div>
                 <div >
                     <form onSubmit={this.handleSubmit} >
-                        <div className="input-container">
-                            <p>Username</p>
+                        <div>
                             <input
-                                type ="text" name="username"  value={this.state.username}  onChange={this.handleChange} placeholder="username" required>
+                                className = "loginInputField" type ="text" name="username"  value={this.state.username}  onChange={this.handleChange} placeholder="Email adress*" required>
                             </input>
                         </div>
                         <div>
-                            <p>Password</p>
                             <input
-                                type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="******" required>
+                                className = "loginInputField" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password*" required>
                             </input>
                         </div>
                         <div> 
-                            <button className="logInFormButton" id="formButton" type="submit">Log in</button>
+                            <button className="buttonDefault" id="formButton" type="submit">Log in</button>
                        </div>
                     </form>
                 </div>

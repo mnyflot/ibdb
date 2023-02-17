@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import LogInButton from "./LogInButton";
+import Header from "./Header.js";
 
 
 export class HomePage extends Component {
@@ -11,14 +10,10 @@ export class HomePage extends Component {
     render() {
         return (
           <div>
-            <div className="headerSite">
-                <h1>IBDb</h1>
-                <div className="searchBarDiv">
-                    <SearchBar/>
-                </div>
-                <div className="logInButtonDiv">
-                    <LogInButton/>
-                </div> 
+            <div>                    
+                <Header/>
+            </div>
+            <div>
             </div>
           </div>
         );
