@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LogInButton from "./LogInButton";
+import SearchBar from "./SearchBar";
 
 
 
@@ -11,10 +12,14 @@ export class Header extends Component {
     render() {
         return (
             <div className="header">
-                <h1 id="nameInHeader">IBD</h1>
+                <h1 id="nameInHeader">IBDb</h1>
+                <div className="searchBarDiv">
+                    <SearchBar/>
+                </div>
                 <div className="logInButtonDiv">
                     <LogInButton/>
                 </div> 
+                
             </div>
         );
     }

@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "style-loader": "^3.3.1"
   }
 }

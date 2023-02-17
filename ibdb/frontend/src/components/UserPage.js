@@ -13,7 +13,7 @@ export class UserPage extends Component {
                     <Header/>
                 </div>
                 <div className="headline">
-                    <h1>Hi user! Jalla!!!</h1>
+                    <h1>Hi user! </h1>
                 </div>
              </div>
         ) 

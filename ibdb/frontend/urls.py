@@ -5,4 +5,5 @@ urlpatterns = [
     path('', index),
     path('user', index),
     path('log-in', index),
+    path('search/<slug:search>', index),
 ]
