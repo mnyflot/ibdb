@@ -9,7 +9,7 @@ export class SearchResultsPage extends Component {
         super(props);
         let params = useParams();
         console.log(params);
-        this.search = params.search;
+        this.search = params.search.split("+");
     }
 
     render() {

@@ -19,7 +19,7 @@ export default class App extends Component {
                   <Route exact path="/" element={<HomePage />} />
                   <Route path="/user" element={<UserPage />} />
                   <Route path="/log-in" element={<LogInPage />} />
-                  <Route path="/search/:search" element={<SearchResultsPage />} />
+                  <Route path="/search=:search" element={<SearchResultsPage />} />
                  </Routes>
               </BrowserRouter>
             </div>);
