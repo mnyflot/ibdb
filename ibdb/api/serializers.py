@@ -4,9 +4,9 @@ from .models import Book
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('id', 'title', 'genre')
+        fields = ('title', 'genre', 'bookId')
 
 class NewBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('title', 'genre')
+        fields = ('title', 'genre', 'bookId')
