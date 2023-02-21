@@ -3,7 +3,7 @@ import Header from "./Header";
 import { useParams } from "react-router-dom";
 
 const SearchResultsPage = () => {
-    const { searchPhrase } = useParams();
+    let { searchPhrase } = useParams();
     console.log(searchPhrase);
 
     return (
@@ -11,7 +11,7 @@ const SearchResultsPage = () => {
             <Header/>
             <div>
                 <div>
-                    <p>Search results for "{searchPhrase}"</p>
+                    <h2>Search results for "{searchPhrase}"</h2>
                 </div>
             </div>
         </div>
