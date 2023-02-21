@@ -11,7 +11,7 @@ const SearchResultsPage = () => {
     return (
         <div>
             <div className="headerSite">
-                <h1>IBDb</h1>
+                <h1>IBDb søk</h1>
                 <div className="searchBarDiv">
                     <SearchBar/>
                 </div>
@@ -19,7 +19,7 @@ const SearchResultsPage = () => {
                     <LogInButton/>
                 </div> 
             </div>
-            <div className="searchResultsDiv">
+            <div>
                 <div>
                     <p>Search results for ""</p>
                 </div>
@@ -27,5 +27,3 @@ const SearchResultsPage = () => {
         </div>
         );
 };
-
-export default SearchResultsPage;

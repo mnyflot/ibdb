@@ -7,5 +7,5 @@ urlpatterns = [
     path('log-in', index),
     path('book/<str:bookId>', index),
     path('create-book', index),
-    path('search=<search>', index),
+    path('search/search=<search>', index),
 ]
