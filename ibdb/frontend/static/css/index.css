@@ -7,9 +7,6 @@ body {
     color: black;
     background-color: #ffffff;
     position: relative;
-
-
-
 }
 
 #main {
@@ -25,40 +22,85 @@ body {
     height: 100%;
 }
 
-.form {
-    border-style: double;
-    border-width: 2px;
+/* Default CSS elements */
 
-    border-color: #BDCDD6;
-    padding: 10pt;
-    border-radius: 0%;
-}
-
-
-.headerSite {
-    height: 70px;
-    width: 100%;
-    background-color: #BDCDD6;
-    position: absolute;
-    top: 0;
-}
-
-
-.searchResultsDiv {
-    width: 100%;
-    position: absolute;
-    top: 1;
-
-}
-
-
-.searchBar {
+.buttonDefault{
     background-color: white;
     color: black;
-    position: absolute;
-    left: 50%;
-    top: 50%
+    border: 1px solid #6096B4;
+    border-radius: 4px;
+    height: 30px;
+    width: fit-content;
+    margin: 3px;
 }
+
+.buttonDefault:hover{
+    background-color:rgb(231, 227, 227);
+}
+
+
+/* Log-in page */
+.form{
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    position: fixed;
+    padding: 10px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+}
+
+#formButton{
+    width: 90%;
+    height: 30px;
+    margin: 10px;
+    align-items: center;
+}
+
+#registerNewUserButton{
+    border-style: none;
+    background-color: white;
+    color: black;
+    text-decoration-color: black;
+    
+}
+
+#registerNewUserButton:hover{
+    text-decoration: underline;
+    color: blue;
+    text-decoration-color: blue;
+}
+
+.loginInputField{
+    width: 90%;
+    height: 30px;
+    margin: 10px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.signInText{
+    text-align: center;
+}
+
+/* Search bar */
+.searchBar {
+    background-color: #6096B4;
+    color: black;
+}
+
+.searchField{
+    height: 25px;
+    border-style: none;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14;
+}
+
+
 
 .logInButton {
     background-color: white;
@@ -68,6 +110,27 @@ body {
     top: 50%;
 
 }
+
+/* Header */
+
+.header{
+    height: 50px;
+    background-color: #6096B4;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #6096B4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.nameInHeader{
+    color: white;
+}
+
 
 
 .headline {

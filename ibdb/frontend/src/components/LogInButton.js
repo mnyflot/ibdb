@@ -7,9 +7,9 @@ class LogInButton extends Component {
 
     render() {
         return (
-            <div className='logInButton'>
+            <div>
                 <a href="/log-in">
-                    <button type="button">Log In</button>
+                    <button className="buttonDefault" type="button">Log In</button>
                 </a>
             </div>
         );
