@@ -5,12 +5,11 @@ import {Link, Routes, Route, useNavigate, redirect} from 'react-router-dom';
 export class LogInForm extends Component {
     constructor(props) {
         super(props);
-        this.state= {username: "", password: ""};
+        this.state= {username: "", password: "", email: ""};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    };
-    
+    };    
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
@@ -18,8 +17,8 @@ export class LogInForm extends Component {
       
     handleSubmit(event) {
         event.preventDefault();
-        alert('Nice login! ' + this.state.password + '=' +this.state.username);
-        window.location.href="/user"
+/*         alert('Nice login! ' + this.state.password + '=' +this.state.username);
+ */        window.location.href="/user/"+this.state.username
     }
         
     render() {
@@ -32,12 +31,12 @@ export class LogInForm extends Component {
                     <form onSubmit={this.handleSubmit} >
                         <div>
                             <input
-                                className = "loginInputField" type ="text" name="username"  value={this.state.username}  onChange={this.handleChange} placeholder="Email adress*" required>
+                                className = "loginInputField" type ="text" name="username"  value={this.state.username}  onChange={this.handleChange} placeholder="Username" required>
                             </input>
                         </div>
                         <div>
                             <input
-                                className = "loginInputField" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password*" required>
+                                className = "loginInputField" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required>
                             </input>
                         </div>
                         <div> 

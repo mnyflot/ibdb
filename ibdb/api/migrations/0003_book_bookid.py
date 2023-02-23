@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='bookId',
-            field=models.CharField(default='', max_length=8),
+            field=models.CharField(default='', max_length=30),
         ),
     ]
