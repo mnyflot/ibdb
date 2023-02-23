@@ -11,7 +11,7 @@ export function Header() {
 
     return (
         <div className="header">
-            <h1 id="nameInHeader" onClick={()=> navigate("/")}>IBDb</h1>
+            <h1 className="nameInHeader" onClick={()=> navigate("/")}>IBDb</h1>
             <div className="searchBarDiv">
                 <SearchBar/>
             </div>

@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     color: black;
-    background-color: lightgray;
+    background-color: rgb(250, 249, 246);
     position: relative;
 }
 
@@ -32,6 +32,7 @@ body {
     height: 30px;
     width: fit-content;
     margin: 3px;
+    cursor: pointer;
 }
 
 .buttonDefault:hover{
@@ -62,7 +63,7 @@ body {
 
 #registerNewUserButton{
     border-style: none;
-    background-color: white;
+    background-color: rgb(250, 249, 246);
     color: black;
     text-decoration-color: black;
     
@@ -108,8 +109,10 @@ body {
     position: absolute;
     left: 95%;
     top: 50%;
+    cursor: pointer;
 
 }
+
 
 /* Header */
 
@@ -129,10 +132,15 @@ body {
 
 .nameInHeader{
     color: white;
+    cursor: pointer;
 }
 
 .headline {
     text-align: center;
+}
+
+.logInButtonDiv {
+    cursor: pointer;
 }
 
 /* BookButton class (should probably change name and/or structure soon) */
