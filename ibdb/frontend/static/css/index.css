@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     color: black;
-    background-color: #ffffff;
+    background-color: rgb(250, 249, 246);
     position: relative;
 }
 
@@ -32,6 +32,7 @@ body {
     height: 30px;
     width: fit-content;
     margin: 3px;
+    cursor: pointer;
 }
 
 .buttonDefault:hover{
@@ -62,7 +63,7 @@ body {
 
 #registerNewUserButton{
     border-style: none;
-    background-color: white;
+    background-color: rgb(250, 249, 246);
     color: black;
     text-decoration-color: black;
     
@@ -108,8 +109,10 @@ body {
     position: absolute;
     left: 95%;
     top: 50%;
+    cursor: pointer;
 
 }
+
 
 /* Header */
 
@@ -129,10 +132,43 @@ body {
 
 .nameInHeader{
     color: white;
+    cursor: pointer;
 }
-
-
 
 .headline {
     text-align: center;
+}
+
+.logInButtonDiv {
+    cursor: pointer;
+}
+
+/* BookButton class (should probably change name and/or structure soon) */
+.book  {
+    cursor: pointer;
+
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+
+    height: auto;
+    width: 150px;
+
+    transition: box-shadow 0.15s;
+}
+
+.book_grid {
+    display: row;
+    
+}
+
+.featured_today {
+    padding-top: 50px;
+}
+
+.featured_today_header {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
 }

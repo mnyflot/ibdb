@@ -1,28 +1,26 @@
 import React, { Component } from "react";
+import { useNavigate } from "react-router-dom";
 import LogInButton from "./LogInButton";
 import SearchBar from "./SearchBar";
 
 
 
-export class Header extends Component {
-    constructor(props) {
-        super(props);
-    };
+export function Header() {
     
-    render() {
-        return (
-            <div className="header">
-                <h1 id="nameInHeader">IBDb</h1>
-                <div className="searchBarDiv">
-                    <SearchBar/>
-                </div>
-                <div className="logInButtonDiv">
-                    <LogInButton/>
-                </div> 
-                
+    const navigate = useNavigate();
+
+    return (
+        <div className="header">
+            <h1 className="nameInHeader" onClick={()=> navigate("/")}>IBDb</h1>
+            <div className="searchBarDiv">
+                <SearchBar/>
             </div>
-        );
-    }
+            <div className="logInButtonDiv">
+                <LogInButton/>
+            </div> 
+            
+        </div>
+    );
 
 }
 
