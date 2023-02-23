@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from './Header';
 
 export default function Book() {
   const { bookId } = useParams();
@@ -18,8 +19,9 @@ export default function Book() {
 
   return (
     <div>
+      <Header/>
       <h1>{book.title}</h1>
-      <p>Genre: {book.genre}</p>
+      <p>Sjanger: {book.genre}</p>
     </div>
   );
 }
