@@ -44,21 +44,6 @@ class SearchTitle(APIView):
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class SearchAuthor(APIView):
-    serializer_class = BookSerializer
-    lookuk_url_kwarg = 'author'
-
-    def get(self, request, format=None):
-        author = request.GET.get(self.lookuk_url_kwarg)
-        if author != None:
-            book = Book.objects.filter(author=author)
-            if len(book) > 0:
-                data = BookSerializer(book[0]).data
-                return Response(data, status=status.HTTP_200_OK)
-            return Response({'Book Not Found': 'Invalid Book ID'}, status=status.HTTP_404_NOT_FOUND)
-        return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
-
-
 class NewBookView(APIView):
     serializer_class = NewBookSerializer
 

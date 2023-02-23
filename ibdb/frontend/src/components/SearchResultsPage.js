@@ -7,22 +7,13 @@ export default function SearchResultsPage() {
     let { searchPhrase } = useParams();
     searchPhrase = searchPhrase.split("+");
     searchPhrase = searchPhrase.join(" ");
-    // searchPhrase = searchPhrase.toLowerCase();
-
 
     useEffect(() => {
         // Fetch book data based on the searchPhrase parameter
         fetch(`/search-title?title=${searchPhrase}`)
           .then(response => response.json())
           .then((data) => {
-            (typeof data.bookId != "undefined") ? navigate(`/book/${data.bookId}`) : () => {
-                fetch(`search-author?author=${searchPhrase}`)
-                .then(response => response.json())
-                .then((data) => {
-                    (typeof data.author != "undefined") ? navigate(`/book/${data.bookId}`) : console.log("No search results...");
-                })
-            };
-        })
+            (typeof data.bookId != "undefined") ? navigate(`/book/${data.bookId}`) : console.log("Book not found...")})
           .catch(error => console.error(error));
       }, [searchPhrase]);
 
