@@ -86,7 +86,7 @@ class NewUserView(APIView):
             queryset = User.objects.filter(username=username)
             if queryset.exists():
                 user = queryset[0]
-                user.username = user
+                user.username = username
                 user.email = email
                 user.password = password
                 user.save(update_fields=['username', 'email', 'password'])
