@@ -12,9 +12,17 @@ export default function SearchResultsPage() {
 
     useEffect(() => {
         // Fetch book data based on the searchPhrase parameter
-        fetch(`/get-book?title=${searchPhrase}`)
+        fetch(`/search-title?title=${searchPhrase}`)
           .then(response => response.json())
-          .then(data => navigate(`/book/${data.bookId}`))
+          .then((data) => {
+            (typeof data.bookId != "undefined") ? navigate(`/book/${data.bookId}`) : () => {
+                fetch(`search-author?author=${searchPhrase}`)
+                .then(response => response.json())
+                .then((data) => {
+                    (typeof data.author != "undefined") ? navigate(`/book/${data.bookId}`) : console.log("No search results...");
+                })
+            };
+        })
           .catch(error => console.error(error));
       }, [searchPhrase]);
 
@@ -23,7 +31,7 @@ export default function SearchResultsPage() {
             <Header/>
             <div>
                 <div>
-                    <h2>Search results for "{searchPhrase}"</h2>
+                    <h2>Sorry, no search results for "{searchPhrase}"</h2>
                 </div>
             </div>
         </div>
