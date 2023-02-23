@@ -17,10 +17,8 @@ class SearchBar extends Component {
         event.preventDefault();
         let search = this.state.search
         search = search.split(" ");
-        search = search.join("-")
-        console.log(search);
+        search = search.join("+");
         search = "/search/" + search;
-        console.log(search);
         window.location.href=search;
     }
 

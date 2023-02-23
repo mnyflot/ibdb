@@ -1,38 +1,30 @@
-import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import LogInButton from "./LogInButton";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import Header from "./Header";
+import { useNavigate, useParams } from "react-router-dom";
 
+export default function SearchResultsPage() {
+    const navigate = useNavigate();
+    let { searchPhrase } = useParams();
+    searchPhrase = searchPhrase.split("+");
+    searchPhrase = searchPhrase.join(" ");
 
-export class SearchResultsPage extends Component {
-    constructor(props) {
-        super(props);
-        let params = useParams();
-        console.log(params);
-        this.search = params.search;
-    }
+    useEffect(() => {
+        // Fetch book data based on the searchPhrase parameter
+        fetch(`/search-title?title=${searchPhrase}`)
+          .then(response => response.json())
+          .then((data) => {
+            (typeof data.bookId != "undefined") ? navigate(`/book/${data.bookId}`) : console.log("Book not found...")})
+          .catch(error => console.error(error));
+      }, [searchPhrase]);
 
-    render() {
-        return (
-          <div>
-            <div className="headerSite">
-                <h1>IBDb</h1>
-                <div className="searchBarDiv">
-                    <SearchBar/>
-                </div>
-                <div className="logInButtonDiv">
-                    <LogInButton/>
-                </div> 
-            </div>
-            <div className="searchResultsDiv">
+    return (
+        <div>
+            <Header/>
+            <div>
                 <div>
-                    <p>Search results for "{this.search}"</p>
+                    <h2>Sorry, no search results for "{searchPhrase}"</h2>
                 </div>
             </div>
-          </div>
+        </div>
         );
-        
-    }    
-        
 }
-export default SearchResultsPage;
