@@ -53,19 +53,31 @@ class NewBookView(APIView):
             self.request.session.create()
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
+            bookId = serializer.data.get('bookId')
             title = serializer.data.get('title')
             genre = serializer.data.get('genre')
-            bookId = serializer.data.get('bookId')
+            author = serializer.data.get('author')
+            year = serializer.data.get('year')
+            description = serializer.data.get('description')
+            totalRatingScore = serializer.data.get('totalRatingScore')
+            numberOfRatings = serializer.data.get('numberOfRatings')
+            imageURL = serializer.data.get('imageURL')
             queryset = Book.objects.filter(bookId=bookId)
             if queryset.exists():
                 book = queryset[0]
+                book.bookId = bookId
                 book.title = title
                 book.genre = genre
-                book.bookId = bookId
-                book.save(update_fields=['title', 'genre', 'bookId'])
+                book.author = author
+                book.year = year
+                book.description = description
+                book.totalRatingScore = totalRatingScore
+                book.numberOfRatings = numberOfRatings
+                book.imageURL = imageURL
+                book.save(update_fields=['bookId','title', 'genre','author','year', 'description', 'totalRatingScore','numberOfRatings', 'imageURL'])
                 return Response(BookSerializer(book).data, status=status.HTTP_200_OK)
             else:
-                book = Book(title=title, genre=genre, bookId=bookId)
+                book = Book(bookId=bookId, title=title, genre=genre, author=author, year=year, description=description, totalRatingScore=totalRatingScore, numberOfRatings=numberOfRatings, imageURL=imageURL)
                 book.save()
                 return Response(BookSerializer(book).data, status=status.HTTP_201_CREATED)
 

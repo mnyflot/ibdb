@@ -5,12 +5,12 @@ from .models import User
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('title', 'genre', 'bookId')
+        fields = ('bookId', 'title', 'genre', 'author', 'year', 'description', 'totalRatingScore', 'numberOfRatings', 'imageURL' )
 
 class NewBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('title', 'genre', 'bookId')
+        fields = ('bookId', 'title', 'genre', 'author', 'year', 'description', 'totalRatingScore', 'numberOfRatings', 'imageURL' )
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
