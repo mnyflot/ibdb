@@ -17,9 +17,9 @@ export class HomePage extends Component {
             </div>
             <div>
             </div>
-            <BookButton/>
+                <BookButton/>
           </div>
-        );
+        );  
         
     } 
 
