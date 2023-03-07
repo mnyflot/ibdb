@@ -1,39 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {search: ""};
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+export default function SearchBar() {
+    const location = useLocation();
+    const query = new URLSearchParams(location.search).get("q") || "";
 
-    handleChange(event) {
-        this.setState({[event.target.name]: event.target.value});
-    }
 
-    handleSubmit(event) {
+    const [search, setSearch] = useState(query);
+    
+    const navigate = useNavigate();
+
+    const handleSubmit = event => {
         event.preventDefault();
-        let search = this.state.search
-        search = search.split(" ");
-        search = search.join("+");
-        search = "/search/" + search;
-        window.location.href=search;
+        if (search.trim()) {
+            navigate(`/search_results?quer=${encodeURIComponent(search.trim())}`);
+        } else {
+            navigate(`/search_results`);
+        }
+    };
+
+    const handleChange = (event) => {
+        setSearch(event.target.value);
     }
 
-    render() {
-        return (
-            <div className='searchBar'>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input className='searchField' type="text" name="search" value={this.state.search} onChange={this.handleChange} />
-                    </label>
-                    <input className='buttonDefault' type="submit" value="Search" />
-                </form>
-            </div>
-        );
-    }
+    return (
+        <div className='searchBar'>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    <input 
+                        className='searchField' 
+                        type="search" 
+                        value={search} 
+                        name="q" 
+                        onChange={handleChange} 
+                        placeholder="Søk" />
+                </label>
+                <input 
+                    className='buttonDefault' 
+                    type="submit" 
+                    value="Search"
+                    onChange={(e) => setSearch(e.target.value)} />
+            </form>
+        </div>
+    );
 }
-
-export default SearchBar;
