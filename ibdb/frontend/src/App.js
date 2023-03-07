@@ -23,7 +23,7 @@ export default class App extends Component {
                   <Route path="/log-in" element={<LogInPage />} />
                   <Route path="/book/:bookId" element={<Book />} />
                   <Route path="/create-book" element={<NewBookPage />} />
-                  <Route path="/search/:searchPhrase" element={<SearchResultsPage />} />
+                  <Route path="/search_results" element={<SearchResultsPage />} />
                  </Routes>
               </BrowserRouter>
             </div>);

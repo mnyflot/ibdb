@@ -10,4 +10,5 @@ urlpatterns = [
     path('search/<searchPhrase>', index),
     path('register', index),
     path('user/<str:userName>', index),
+    path('search_results', index),
 ]
