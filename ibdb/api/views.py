@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.views import APIView
@@ -28,7 +29,6 @@ class GetBook(APIView):
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'Book Not Found': 'Invalid Book ID'}, status=status.HTTP_404_NOT_FOUND)
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
-
 
 class SearchTitle(APIView):
     serializer_class = BookSerializer
