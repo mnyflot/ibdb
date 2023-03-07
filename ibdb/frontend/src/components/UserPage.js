@@ -3,19 +3,16 @@ import { useParams } from 'react-router-dom';
 import Header from "./Header.js";
 
 export default function User() {
-  const { username } = useParams();
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
+  const [username, setUser] = useState('');
 
   useEffect(() => {
     // Fetch user data based on the username parameter
-    fetch(`/get-user?username=${username}`)
-      .then(response => response.json())
-      .then(data => setUser(data))
-      .catch(error => console.error(error));
-  }, [username]);
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = loggedInUser;
+      setUser(foundUser);
+    }
+  }, []);
 
     return (
         <div>
@@ -23,7 +20,7 @@ export default function User() {
                 <Header/>
             </div>
             <div className="headline">
-                <h1>Hi {user.username}! </h1>
+                <h1>Hi {username}! </h1>
             </div>
             </div>
     ) 
