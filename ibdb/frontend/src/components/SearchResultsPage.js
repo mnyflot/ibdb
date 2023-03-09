@@ -34,8 +34,8 @@ export default function SearchResultsPage() {
     });
 
     return (
-        <div>
-            <Header />
+        <div >
+            <Header/>
             {filteredBooks.length === 0 ? (
                 <div className="search-results-page"> 
                     <div className="search-results">
@@ -43,7 +43,7 @@ export default function SearchResultsPage() {
                     </div>
                 </div>
             ) : (
-                <div>
+                <div className="searchPage">
                     <div className="search-results">
                         <p>
                             {searchQuery !== '' ? `Showing search results for "${searchQuery}"` : 'Showing all books'}
@@ -52,14 +52,15 @@ export default function SearchResultsPage() {
                     <div className="book-search-container">
                         {filteredBooks.map((book) => (
                             <div id={book.id} className="search-book">
-                                <h2>{book.title}</h2>
-                                <p>{book.author}</p>
                                 <img 
                                     className="bookImage"
                                     src={book.imageURL}
                                     alt={book.title}
                                     onClick={() => navigate(`/book/${book.bookId}`)}
                                 />
+                                <h2>{book.title}</h2>
+                                <p>{book.author}</p>
+                                
                             </div>
                     ))}
                     </div>
