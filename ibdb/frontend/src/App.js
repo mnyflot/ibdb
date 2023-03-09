@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route, Link, Redirect, } from "react-router-dom";
+import axios from "axios";
+
 import HomePage from "./components/HomePage";
 import LogInPage from "./components/LogInPage";
 import SearchResultsPage from "./components/SearchResultsPage";

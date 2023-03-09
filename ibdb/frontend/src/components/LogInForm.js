@@ -1,53 +1,59 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import {Link, Routes, Route, useNavigate, redirect} from 'react-router-dom';
 
 
-export class LogInForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state= {username: "", password: "", email: ""};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    };    
-
-    handleChange(event) {
-        this.setState({[event.target.name]: event.target.value});
-    }
+export default function LogInForm () {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [user, setUser] = useState()
       
-    handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-/*         alert('Nice login! ' + this.state.password + '=' +this.state.username);
- */        window.location.href="/user/"+this.state.username
+        var storedInfo;
+        var hit = false;
+        await fetch("http://127.0.0.1:8000/users")
+        .then((response) => response.json())
+        .then(data =>  {
+          storedInfo = data;
+        })
+        for (let i = 0; i < storedInfo.length; i++) {
+          if (storedInfo[i].username == username && storedInfo[i].password == password) {
+            hit = true;
+            window.location.href="/user/"+username
+            setUser(storedInfo)
+            localStorage.setItem("user", storedInfo?.[0]?.username)
+          }
+        }
+        if (hit == false) {
+          alert("Feil brukernavn eller passord")
+        }
+       
     }
-        
-    render() {
-        return (
-            <div className = "loginForm">
-                <div>
-                    <h3 className="signInText">Sign in</h3>
-                </div>
-                <div >
-                    <form onSubmit={this.handleSubmit} >
-                        <div>
-                            <input
-                                className = "loginInputField" type ="text" name="username"  value={this.state.username}  onChange={this.handleChange} placeholder="Username" required>
-                            </input>
-                        </div>
-                        <div>
-                            <input
-                                className = "loginInputField" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required>
-                            </input>
-                        </div>
-                        <div> 
-                            <button className="buttonDefault" id="formButton" type="submit">Log in</button>
-                       </div>
-                    </form>
-                </div>
-            </div>  
-        );
-    }
+    
+    
+
+    return (
+        <div className = "loginForm">
+            <div>
+                <h3 className="signInText">Sign in</h3>
+            </div>
+            <div >
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input
+                            className = "loginInputField" type ="text" name="username"  value={username}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
+                        </input>
+                    </div>
+                    <div>
+                        <input
+                            className = "loginInputField" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
+                        </input>
+                    </div>
+                    <div> 
+                        <button className="buttonDefault" id="formButton" type="submit">Log in</button>
+                    </div>
+                </form>
+            </div>
+        </div>  
+    );
 }
-
-
-export default LogInForm;
