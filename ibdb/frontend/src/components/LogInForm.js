@@ -5,6 +5,7 @@ import {Link, Routes, Route, useNavigate, redirect} from 'react-router-dom';
 export default function LogInForm () {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [user, setUser] = useState()
       
     async function handleSubmit(event) {
         event.preventDefault();
@@ -19,12 +20,14 @@ export default function LogInForm () {
           if (storedInfo[i].username == username && storedInfo[i].password == password) {
             hit = true;
             window.location.href="/user/"+username
+            setUser(storedInfo)
+            localStorage.setItem("user", storedInfo?.[0]?.username)
           }
         }
         if (hit == false) {
           alert("Feil brukernavn eller passord")
         }
-        
+       
     }
     
     
