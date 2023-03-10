@@ -11,7 +11,7 @@ export function BookButton() {
         fetch('books')
         .then(response => response.json())
         .then(data => setBooks(data))
-    }, [books]);
+    }, []);
 
     for (const [i, book] of books.entries()) {
         bookList.push(<img 

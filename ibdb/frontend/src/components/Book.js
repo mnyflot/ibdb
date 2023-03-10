@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
+import ReviewButton from './ReviewButton';
 
 export default function Book() {
   const { bookId } = useParams();
@@ -46,6 +47,7 @@ export default function Book() {
                 <hr></hr>
                 <p> <b>OM BOKEN</b></p>
                 <p> {book.description}</p>
+                <ReviewButton/>
             </div>
         </div>
     </div>

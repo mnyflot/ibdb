@@ -6,6 +6,8 @@ from .views import SearchTitle
 from .views import UserView
 from .views import NewUserView
 from .views import GetUser
+from .views import NewReviewView
+from .views import ReviewView
 from .views import get_all_books
 urlpatterns = [
     path('home', BookView.as_view()),
@@ -18,4 +20,6 @@ urlpatterns = [
     path('users', UserView.as_view()),
     path('register', NewUserView.as_view()),
     path('get-user', GetUser.as_view()),
+    path('new-review', NewReviewView.as_view()),
+    path('reviews', ReviewView.as_view()),
 ]

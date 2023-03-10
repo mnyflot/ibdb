@@ -24,7 +24,7 @@ body {
 
 /* Default CSS elements */
 
-.buttonDefault{
+.buttonDefault {
     background-color: white;
     color: black;
     border: 1px solid #6096B4;
@@ -35,13 +35,13 @@ body {
     cursor: pointer;
 }
 
-.buttonDefault:hover{
-    background-color:rgb(231, 227, 227);
+.buttonDefault:hover {
+    background-color: rgb(231, 227, 227);
 }
 
 
 /* Log-in page */
-.form{
+.form {
     border-style: solid;
     border-radius: 4px;
     border-width: 1px;
@@ -54,28 +54,28 @@ body {
     margin-left: -200px;
 }
 
-#formButton{
+#formButton {
     width: 90%;
     height: 30px;
     margin: 10px;
     align-items: center;
 }
 
-#registerNewUserButton{
+#registerNewUserButton {
     border-style: none;
     background-color: rgb(250, 249, 246);
     color: black;
     text-decoration-color: black;
-    
+
 }
 
-#registerNewUserButton:hover{
+#registerNewUserButton:hover {
     text-decoration: underline;
     color: blue;
     text-decoration-color: blue;
 }
 
-.loginInputField{
+.loginInputField {
     width: 90%;
     height: 30px;
     margin: 10px;
@@ -83,7 +83,7 @@ body {
     box-sizing: border-box;
 }
 
-.signInText{
+.signInText {
     text-align: center;
 }
 
@@ -93,7 +93,7 @@ body {
     color: black;
 }
 
-.searchField{
+.searchField {
     height: 25px;
     border-style: none;
     border-radius: 4px;
@@ -116,7 +116,7 @@ body {
 
 /* Header */
 
-.header{
+.header {
     height: 50px;
     background-color: #6096B4;
     border-bottom-style: solid;
@@ -130,7 +130,7 @@ body {
 
 }
 
-.nameInHeader{
+.nameInHeader {
     color: white;
     cursor: pointer;
 }
@@ -144,7 +144,7 @@ body {
 }
 
 /* BookButton class (should probably change name and/or structure soon) */
-.book  {
+.book {
     cursor: pointer;
     padding-left: 20px;
     padding-top: 5px;
@@ -159,7 +159,7 @@ body {
 
 .book_grid {
     display: row;
-    
+
 }
 
 .featured_today {
@@ -174,7 +174,7 @@ body {
 
 /* Book site */
 
-.bookMain{
+.bookMain {
     display: grid;
     grid-template-columns: 300px auto;
     width: 60%;
@@ -185,24 +185,25 @@ body {
     background-color: white;
     border-radius: 5%;
     border-color: white;
-    
+
 }
 
-.bookImage{
+.bookImage {
     width: 100%;
     padding-right: 10px;
 }
 
-.bookCover{
+.bookCover {
     width: 100%;
-} 
-.bookInformation{
-    width: 100%;
-    padding-left: 20px;
-    
 }
 
-#authorAndYear{
+.bookInformation {
+    width: 100%;
+    padding-left: 20px;
+
+}
+
+#authorAndYear {
     font-size: smaller;
 }
 
@@ -266,10 +267,29 @@ body {
     margin-bottom: 1px;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.on {
+    color: #000;
+}
+
+.off {
+    color: #ccc;
+}
 
 
-.stars{
+.stars {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     width: 80px;
+}
+
+.commentField {
+    width: 92%;
+    height: 200px;
 }

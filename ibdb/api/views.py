@@ -7,11 +7,14 @@ from django.http import JsonResponse
 
 from .models import User
 from .models import Book
-from .serializers import BookSerializer, NewBookSerializer, UserSerializer, NewUserSerializer
+from .models import Review
+from .serializers import BookSerializer, NewBookSerializer, UserSerializer, NewUserSerializer, ReviewSerializer, NewReviewSerializer
 
 # Create your views here.
 
 # class GetAllBooks(APIView):
+
+
 def get_all_books(request):
     data = Book.objects.all().values()
     return JsonResponse(list(data), safe=False)
@@ -35,6 +38,7 @@ class GetBook(APIView):
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'Book Not Found': 'Invalid Book ID'}, status=status.HTTP_404_NOT_FOUND)
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class SearchTitle(APIView):
     serializer_class = BookSerializer
@@ -80,18 +84,22 @@ class NewBookView(APIView):
                 book.totalRatingScore = totalRatingScore
                 book.numberOfRatings = numberOfRatings
                 book.imageURL = imageURL
-                book.save(update_fields=['bookId','title', 'genre','author','year', 'description', 'totalRatingScore','numberOfRatings', 'imageURL'])
+                book.save(update_fields=['bookId', 'title', 'genre', 'author', 'year',
+                          'description', 'totalRatingScore', 'numberOfRatings', 'imageURL'])
                 return Response(BookSerializer(book).data, status=status.HTTP_200_OK)
             else:
-                book = Book(bookId=bookId, title=title, genre=genre, author=author, year=year, description=description, totalRatingScore=totalRatingScore, numberOfRatings=numberOfRatings, imageURL=imageURL)
+                book = Book(bookId=bookId, title=title, genre=genre, author=author, year=year, description=description,
+                            totalRatingScore=totalRatingScore, numberOfRatings=numberOfRatings, imageURL=imageURL)
                 book.save()
                 return Response(BookSerializer(book).data, status=status.HTTP_201_CREATED)
 
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
+
 class UserView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 class GetUser(APIView):
     serializer_class = UserSerializer
@@ -106,6 +114,7 @@ class GetUser(APIView):
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'User Not Found': 'Invalid username'}, status=status.HTTP_404_NOT_FOUND)
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class NewUserView(APIView):
     serializer_class = NewUserSerializer
@@ -130,5 +139,29 @@ class NewUserView(APIView):
                 user = User(username=username, email=email, password=password)
                 user.save()
                 return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
-        
+
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class NewReviewView(APIView):
+    serializer_class = NewReviewSerializer
+
+    def post(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            username = serializer.data.get('username')
+            bookId = serializer.data.get('bookId')
+            rating = serializer.data.get('rating')
+            comment = serializer.data.get('comment')
+            review = Review(bookId=bookId, rating=rating, comment=comment)
+            review.save()
+            return Response(ReviewSerializer(review).data, status=status.HTTP_201_CREATED)
+
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ReviewView(generics.ListAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer

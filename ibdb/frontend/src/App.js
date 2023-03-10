@@ -9,6 +9,7 @@ import SearchResultsPage from "./components/SearchResultsPage";
 import UserPage from "./components/UserPage";
 import Book from "./components/Book"
 import NewBookPage from "./components/NewBookPage"
+import ReviewPage from "./components/ReviewPage";
 
 export default class App extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ export default class App extends Component {
                   <Route path="/book/:bookId" element={<Book />} />
                   <Route path="/create-book" element={<NewBookPage />} />
                   <Route path="/search_results" element={<SearchResultsPage />} />
+                  <Route path="/review/:bookId" element={<ReviewPage />} />
                  </Routes>
               </BrowserRouter>
             </div>);
