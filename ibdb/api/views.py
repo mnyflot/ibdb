@@ -155,7 +155,8 @@ class NewReviewView(APIView):
             bookId = serializer.data.get('bookId')
             rating = serializer.data.get('rating')
             comment = serializer.data.get('comment')
-            review = Review(bookId=bookId, rating=rating, comment=comment)
+            review = Review(username=username, bookId=bookId,
+                            rating=rating, comment=comment)
             review.save()
             return Response(ReviewSerializer(review).data, status=status.HTTP_201_CREATED)
 

@@ -10,11 +10,12 @@ export default function ReviewForm () {
       
     async function handleSubmit(event) {
         event.preventDefault();
+        console.log(localStorage.getItem("user"));
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                username: localStorage.getItem('user').username,
+                username: localStorage.getItem("user"),
                 bookId: bookId,
                 rating: rating,
                 comment: comment,
