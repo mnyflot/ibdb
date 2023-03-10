@@ -22,9 +22,16 @@ export default function Book() {
       .catch(error => console.error(error));
   }, [bookId]);
 
-    const overalRating = Math.round(book.totalRatingScore/book.numberOfRatings * 10) / 10
-    var stars = [];
+  let overalRating = 0;
 
+  if (book.numberOfRatings === 0){
+    overalRating = 0;
+  }
+  else{
+    overalRating = Math.round(book.totalRatingScore/book.numberOfRatings * 10) / 10
+  }
+ 
+    var stars = [];
     for (let index = 0; index < 5; index++) {
         index < Math.round(overalRating) ? stars.push(<div>&#9733;</div>) : stars.push(<div>&#9734;</div>);
     }
