@@ -26,8 +26,7 @@ export default function LogInForm () {
         }
         if (hit == false) {
           alert("Feil brukernavn eller passord")
-        }
-       
+        }       
     }
     
     

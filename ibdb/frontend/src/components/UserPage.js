@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from "./Header.js";
+import Wishlist from "./Wishlist.js"
 
 export default function User() {
   const [username, setUser] = useState('');
@@ -21,6 +22,7 @@ export default function User() {
             </div>
             <div className="headline">
                 <h1>Hi {username}! </h1>
+                <Wishlist />
             </div>
             </div>
     ) 
