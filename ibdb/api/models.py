@@ -10,11 +10,10 @@ class Book(models.Model):
     numberOfRatings: int = models.PositiveSmallIntegerField(default=0)
     imageURL: str = models.CharField(max_length=1000, default='', unique=False)
 
-
-
-
 class User(models.Model):
     email: str = models.CharField(max_length=30, default='', unique=False)
     username: str = models.CharField(max_length=20, default='', unique=True)
     password: str= models.CharField(max_length=20, default='', unique=False)
+    admin = models.BooleanField(default=False)
+
 

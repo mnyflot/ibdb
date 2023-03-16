@@ -26,13 +26,13 @@ class Migration(migrations.Migration):
                 ('imageURL', models.CharField(default='', max_length=1000)),
             ],
         ),
-        migrations.CreateModel(
-            name='User',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.CharField(default='', max_length=30)),
-                ('username', models.CharField(default='', max_length=20, unique=True)),
-                ('password', models.CharField(default='', max_length=20)),
-            ],
-        ),
+        # migrations.CreateModel(
+        #     name='User',
+        #     fields=[
+        #         ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+        #         ('email', models.CharField(default='', max_length=30)),
+        #         ('username', models.CharField(default='', max_length=20, unique=True)),
+        #         ('password', models.CharField(default='', max_length=20)),
+        #     ],
+        # ),
     ]

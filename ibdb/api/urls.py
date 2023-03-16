@@ -17,5 +17,5 @@ urlpatterns = [
 
     path('users', UserView.as_view()),
     path('register', NewUserView.as_view()),
-    path('get-user', GetUser.as_view()),
+    # path('get-user', GetUser.as_view()), IKKE HA MED DENNE
 ]

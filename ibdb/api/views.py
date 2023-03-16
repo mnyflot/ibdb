@@ -118,16 +118,18 @@ class NewUserView(APIView):
             username = serializer.data.get('username')
             email = serializer.data.get('email')
             password = serializer.data.get('password')
+            admin =  serializer.data.get('admin')
             queryset = User.objects.filter(username=username)
             if queryset.exists():
                 user = queryset[0]
                 user.username = username
                 user.email = email
                 user.password = password
-                user.save(update_fields=['username', 'email', 'password'])
+                user.admin = admin
+                user.save(update_fields=['username', 'email', 'admin', 'password'])
                 return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
             else:
-                user = User(username=username, email=email, password=password)
+                user = User(username=username, email=email, password=password, admin=admin)
                 user.save()
                 return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         
