@@ -15,9 +15,14 @@ class NewBookSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email', 'password')
+        fields = ('username', 'email', 'password', 'wishlist')
 
 class NewUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
+
+class AddToWishlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'wishlist')

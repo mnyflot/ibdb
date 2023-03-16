@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { AddToWishlist } from './AddToWishlist';
 import Header from './Header';
 
 export default function Book() {
@@ -53,6 +54,7 @@ export default function Book() {
                 <hr></hr>
                 <p> <b>OM BOKEN</b></p>
                 <p> {book.description}</p>
+                <AddToWishlist />
             </div>
         </div>
     </div>
