@@ -1,20 +1,20 @@
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import React, { Component } from 'react';
 
-class MySiteButton extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default function MySiteButton() {
+    const username = localStorage.getItem("user");
+    const navigate = useNavigate();
 
-    render() {
-        return (
+    const handleClick = event => {
+        event.preventDefault();
+        navigate(`/user/${username}`);
+    };
+
+    return(
             <div>
-                <a href="http://127.0.0.1:8000/user/Linn">
-                    <button className="buttonDefault" type="button">Min side</button>
-                </a>
+                <button onClick={handleClick} className="buttonDefault" type="button">Min side</button>
             </div>
-        );
-    }
-}
 
-export default MySiteButton;
+    )
+}

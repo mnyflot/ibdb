@@ -45,7 +45,8 @@ class NewBookPage extends Component {
   render() {
     return (
       <div className="newBookRegistration">
-        <h3>Legg til ny bok:</h3>
+        <h3 className="categoryFrontpage">Legg til ny bok:</h3>
+        <hr className="underlineMakeNewBook"></hr>
         <p>BookID</p>
         <input
           type="text"

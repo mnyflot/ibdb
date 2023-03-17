@@ -6,10 +6,14 @@ export default function AdminPage() {
 
     return(
         <div>
-            <NewBookPage></NewBookPage>
-
+            <div>
+                <NewBookPage></NewBookPage>
+            </div>
             <div >
                 <CreateAdminUser></CreateAdminUser>
+            </div>
+            <div>
+                <hr className="underlineMakeNewBook"></hr>
             </div>
         </div>
 

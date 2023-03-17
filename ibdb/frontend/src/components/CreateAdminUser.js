@@ -43,32 +43,30 @@ export default function CreateAdminUser() {
 
 
         return (
-            <div className="createAdmin">
+            <div className="newBookRegistration">
                 <div>
-                    <h3 className="signInText">Register new admin user</h3>
+                    <h3 className="categoryFrontpage">Register new admin user</h3>
+                    <hr className="underlineMakeNewBook"></hr>
                 </div>
-                <div >
-                    <form onSubmit={handleRegisterSubmit} className="newBookRegistration">
-                        <div >
+                    <form onSubmit={handleRegisterSubmit}>
+                        
                             <input
-                                 type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="Email address" required>
+                                className="newAdminInputField" type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="Epost" required>
                             </input>
-                        </div>
-                        <div >
+                        
                             <input
-                                 type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
+                                className="newAdminInputField" type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Brukernavn" required>
                             </input>
-                        </div>
-                        <div>
-                            <input
-                                 type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
-                            </input>
-                        </div>
-                        <div> 
-                            <button type ="submit" className="addBookButton" id="formButton">Sign up</button>
-                        </div>            
+                        
+                        
+                        <input
+                            className="newAdminInputField" type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Passord" required>
+                        </input>
+                        
+                       
+                         <button type ="submit" className="addBookButton">Registrer admin</button>
+                                
                     </form>
-                </div>
             </div>  
         );
     }

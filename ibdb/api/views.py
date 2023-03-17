@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 from .models import User
 from .models import Book
-from .serializers import BookSerializer, NewBookSerializer, UserSerializer, NewUserSerializer
+from .serializers import BookSerializer, NewBookSerializer, UserSerializer, NewUserSerializer, AddToWishlistSerializer
 
 # Create your views here.
 
@@ -118,6 +118,7 @@ class NewUserView(APIView):
             email = serializer.data.get('email')
             password = serializer.data.get('password')
             admin =  serializer.data.get('admin')
+            wishlist = serializer.data.get('wishlist')
             queryset = User.objects.filter(username=username)
             if queryset.exists():
                 user = queryset[0]
@@ -125,11 +126,48 @@ class NewUserView(APIView):
                 user.email = email
                 user.password = password
                 user.admin = admin
-                user.save(update_fields=['username', 'email', 'admin', 'password'])
+                user.wishlist = wishlist
+                user.save(update_fields=['username', 'email', 'admin', 'password', 'wishlist'])
                 return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
             else:
-                user = User(username=username, email=email, password=password, admin=admin)
+                user = User(username=username, email=email, password=password, admin=admin, wishlist='')
                 user.save()
                 return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+class GetWishlist(APIView):
+    serializer_class = UserSerializer
+    lookuk_url_kwarg = 'username'
+
+    def get(self, request, format=None):
+        username = request.GET.get(self.lookuk_url_kwarg)
+        if username != None:
+            user = User.objects.filter(username=username)
+            if len(user) > 0:
+                data = UserSerializer(user[0]).data.get('wishlist')
+                return Response(data, status=status.HTTP_200_OK)
+            return Response({'User Not Found': 'Invalid username'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
+class AddToWishlistView(APIView):
+    serializer_class = AddToWishlistSerializer
+
+    def post(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            username = serializer.data.get('username')
+            wishlist = serializer.data.get('wishlist')
+            queryset = User.objects.filter(username=username)
+            if queryset.exists():
+                user = queryset[0]
+                user.username = username
+                user.wishlist = wishlist
+                user.save(update_fields=['username', 'wishlist'])
+                return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
+            else:
+                return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
