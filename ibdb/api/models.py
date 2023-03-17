@@ -5,7 +5,7 @@ class Book(models.Model):
     genre: str = models.CharField(max_length=100, default='', unique=False)
     author: str = models.CharField(max_length=50, default='', unique=False)
     year: str = models.CharField(max_length=50, default='', unique=False)
-    description: str = models.CharField(max_length=1000, default='', unique=False)
+    description: str = models.CharField(max_length=2000, default='', unique=False)
     totalRatingScore: int = models.PositiveSmallIntegerField(default=0)
     numberOfRatings: int = models.PositiveSmallIntegerField(default=0)
     imageURL: str = models.CharField(max_length=1000, default='', unique=False)

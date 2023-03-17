@@ -365,5 +365,75 @@ html,body {
     color: #444444;
 } */
 
+.createAdminUser{
+    margin: auto;
+    width: 60%;
+}
+
+.createAdmin{
+    width: 60%;
+    display: grid;
+    margin: auto;
+    background-color: rgb(245, 245, 245);
+    border-radius: 2%;
+    border-color: rgb(245, 245, 245); 
+    padding: 30px;
+}
+
+.logoutButton{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.newBookRegistration{
+    display: grid ;
+    row-gap: 10px;
+    width: 50%; 
+    margin: auto; 
+    margin-bottom: 100px; 
+    background-color: rgb(245, 245, 245);
+    border-radius: 2%;
+}
+
+.newBookRegistration p{
+    margin: 0;
+
+}
+
+.descriptionField{
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 300px;
+    overflow-y: scroll;
+
+}
+
+.addBookButton{
+    background-color: #6096B4;
+    color: black;
+    border: 1px solid #6096B4;
+    border-radius: 4px;
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+.addBookButton:hover{
+    background-color: white;
+}
 
 
+/* .newBookRegistration{
+    width: 60%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 2%;
+    border-color: rgb(245, 245, 245);
+} */
+
+.newBookRegistration form{
+    margin: 0px;
+}

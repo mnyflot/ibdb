@@ -8,10 +8,11 @@ class NewBookPage extends Component {
         title: "",
         genre: "",
         author: "",
-        year: 0,
+        year: 2023,
         description: "",
         totalRatingScore: 0,
         numberOfRatings: 0,
+        imageURL: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -28,13 +29,13 @@ class NewBookPage extends Component {
         author: this.state.author,
         year: this.state.year, 
         description: this.state.description,
-        totalRatingScore: this.totalRatingScore,
-        numberOfRatings: this.numberOfRatings,
+        totalRatingScore: this.state.totalRatingScore,
+        numberOfRatings: this.state.numberOfRatings,
+        imageURL: this.state.imageURL,
       }),
     };
     fetch("/new-book", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.props.history.push("/book/" + data.bookId));
   }
 
   handleChange(event) {
@@ -43,7 +44,9 @@ class NewBookPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="newBookRegistration">
+        <h3>Legg til ny bok:</h3>
+        <p>BookID</p>
         <input
           type="text"
           variant="standard"
@@ -51,6 +54,7 @@ class NewBookPage extends Component {
           value={this.state.bookId}
           onChange={this.handleChange}
         />
+        <p>Tittel</p>
         <input
           type="text"
           variant="standard"
@@ -58,6 +62,7 @@ class NewBookPage extends Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
+        <p>Sjanger</p>
         <input
           type="text"
           variant="standard"
@@ -65,6 +70,7 @@ class NewBookPage extends Component {
           value={this.state.genre}
           onChange={this.handleChange}
         />
+        <p>Forfatter</p>
         <input
           type="text"
           variant="standard"
@@ -72,20 +78,45 @@ class NewBookPage extends Component {
           value={this.state.author}
           onChange={this.handleChange}
         />
+        <p>Årstall</p>
          <input
           type="number"
           name="year"
           value={this.state.year}
           onChange={this.handleChange}
         />
-        <input
+        <p>Beskrivelse</p>
+        <textarea
+        rows="5"
+        className="descriptionField"
           type="text"
           name="description"
           value={this.state.description}
           onChange={this.handleChange}
         />
-        <button type="button" onClick={this.handleSubmit}>
-          Make book
+        <p>TotalRatingScore</p>
+        <input
+          type="number"
+          name="totalRatingScore"
+          value={this.state.totalRatingScore}
+          onChange={this.handleChange}
+        />
+        <p>NumberOfRatings</p>
+        <input
+          type="number"
+          name="numberOfRatings"
+          value={this.state.numberOfRatings}
+          onChange={this.handleChange}
+        />
+        <p>Image URL</p>
+        <input
+          type="text"
+          name="imageURL"
+          value={this.state.imageURL}
+          onChange={this.handleChange}
+        />
+        <button className="addBookButton" type="button" onClick={this.handleSubmit}>
+          Legg til
         </button>
       </div>
     );

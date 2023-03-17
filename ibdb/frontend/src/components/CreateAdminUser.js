@@ -1,20 +1,11 @@
 import React, { Component, useState } from "react";
 
-export default function RegisterForm() {
+export default function CreateAdminUser() {
     
     const [newUsername, setUsername] = useState("")
     const [newPassword, setPassword] = useState("")
     const [newEmail, setEmail] = useState("")
-    const newAdmin = new Boolean(false);
-
-    /* handleRegisterChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        
-        this.setState({[name]: value});
-      } */
-    
+    const newAdmin = new Boolean(true);
 
     async function handleRegisterSubmit(event) {
         event.preventDefault();
@@ -46,41 +37,35 @@ export default function RegisterForm() {
             };
             fetch("/register", requestOptions)
                 .then((response) => response.json())
-                .then((data) => window.location.href="/log-in");
         }
          
     }
 
 
         return (
-            <div className="loginForm">
+            <div className="createAdmin">
                 <div>
-                    <h3 className="signInText">Register new user</h3>
+                    <h3 className="signInText">Register new admin user</h3>
                 </div>
                 <div >
-                    <form onSubmit={handleRegisterSubmit} >
-                        <div className="input-container">
+                    <form onSubmit={handleRegisterSubmit} className="newBookRegistration">
+                        <div >
                             <input
-                                className = "loginInputField" type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="Email address" required>
+                                 type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="Email address" required>
                             </input>
                         </div>
-                        <div className="input-container">
+                        <div >
                             <input
-                                className = "loginInputField" type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
+                                 type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
                             </input>
                         </div>
                         <div>
                             <input
-                                className = "loginInputField" type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
+                                 type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
                             </input>
                         </div>
-                        {/* <div>    
-                            <input
-                                className = "loginInputField" type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} onChange={this.handleRegisterChange} placeholder="Confirm Password*" required>
-                            </input>
-                        </div> */}
                         <div> 
-                            <button type ="submit" className="buttonDefault" id="formButton">Sign up</button>
+                            <button type ="submit" className="addBookButton" id="formButton">Sign up</button>
                         </div>            
                     </form>
                 </div>
