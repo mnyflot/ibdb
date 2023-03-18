@@ -142,6 +142,7 @@ html,body {
 
 .headline {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .logInButtonDiv {
@@ -365,5 +366,121 @@ html,body {
     color: #444444;
 } */
 
+.createAdminUser{
+    
+    margin: auto;
+    width: 60%;
+}
+
+.createAdmin{
+    width: 60%;
+    display: grid;
+    margin: auto;
+    background-color: rgb(245, 245, 245);
+    border-radius: 2%;
+    border-color: rgb(245, 245, 245); 
+    padding: 30px;
+}
+
+.logoutButton{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 12px;
 
 
+}
+
+.newBookRegistration{
+    display: grid ;
+    row-gap: 10px;
+    width: 50%; 
+    margin: auto; 
+    padding: 30px;
+    margin-bottom: 100px; 
+    background-color: #BDCDD6;
+    border-radius: 5px;
+}
+
+.newBookRegistration h3{
+    margin-top: 0;
+}
+
+.newBookRegistration p{
+    margin: 0;
+
+}
+
+.descriptionField{
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 300px;
+    overflow-y: scroll;
+
+}
+
+.addBookButton{
+    margin-top: 10px;
+    background-color: #6096B4;
+    color: black;
+    border: 1px solid #6096B4;
+    border-radius: 4px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+.addBookButton:hover{
+    background-color: white;
+}
+
+
+/* .newBookRegistration{
+    width: 60%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 2%;
+    border-color: rgb(245, 245, 245);
+} */
+
+.newBookRegistration form{
+    margin: 0px;
+}
+
+.myInformationBox{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px ;
+    width: 75%;
+    background-color: #BDCDD6 ;
+    /* color: white; */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+
+.book_grid_wishlist {
+    display: grid ;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+    /* grid-template-columns: 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px; */
+    /* grid-row: 1;
+    overflow-x: scroll; */
+    row-gap: 10px;
+    width: 88%; 
+    margin: auto; 
+    margin-bottom: 50px;
+}
+
+.underlineMakeNewBook{
+    width: 100%;
+    border-color:#BDCDD6;
+    border-radius: 0;
+}
+
+.newAdminInputField{
+    width: 99%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}

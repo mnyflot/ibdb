@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom';
 
 
 export function AddToWishlist () {
     const { bookId } = useParams();
     const [buttonStr, setButtonStr] = useState('')
     const [username, setUsername] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation();
+
+
+    // const handleClick = event => {
+    //     event.preventDefault();
+    //     navigate(`${location.pathname}`);
+    // };
 
 
     useEffect(() => {
@@ -21,13 +29,10 @@ export function AddToWishlist () {
               setButtonStr(
                 <div>
                   <div>
-                    <h3>Fjern bok fra Ønskeliste</h3>
-                  </div>
-                  <div>
                     <form onSubmit={handleSubmit}>
                       <div>
                         <button className="buttonDefault" id="formButton" type="submit">
-                          Fjern
+                          Fjern bok fra ønskeliste
                         </button>
                       </div>
                     </form>
@@ -38,13 +43,10 @@ export function AddToWishlist () {
               setButtonStr(
                 <div>
                   <div>
-                    <h3>Legg til bok i Ønskeliste</h3>
-                  </div>
-                  <div>
                     <form onSubmit={handleSubmit}>
                       <div>
                         <button className="buttonDefault" id="formButton" type="submit">
-                          Legg til
+                          Legg til bok i ønskeliste
                         </button>
                       </div>
                     </form>
@@ -57,7 +59,6 @@ export function AddToWishlist () {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(bookId)
         Promise.all([
             fetch(`/get-wishlist?username=${username}`).then(response => response.json())])
           .then(([wishlistData2]) => {
@@ -87,7 +88,10 @@ export function AddToWishlist () {
                 .then((response) => response.json());
         }
         })
+        alert("Boken er lagt til i din ønskeliste!");
     }
+
+
             
     return (
         <div className = "SaveBookForm">

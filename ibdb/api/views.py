@@ -53,7 +53,6 @@ class SearchTitle(APIView):
 
 class NewBookView(APIView):
     serializer_class = NewBookSerializer
-
     def post(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
@@ -118,6 +117,7 @@ class NewUserView(APIView):
             username = serializer.data.get('username')
             email = serializer.data.get('email')
             password = serializer.data.get('password')
+            admin =  serializer.data.get('admin')
             wishlist = serializer.data.get('wishlist')
             queryset = User.objects.filter(username=username)
             if queryset.exists():
@@ -125,11 +125,12 @@ class NewUserView(APIView):
                 user.username = username
                 user.email = email
                 user.password = password
+                user.admin = admin
                 user.wishlist = wishlist
-                user.save(update_fields=['username', 'email', 'password', 'wishlist'])
+                user.save(update_fields=['username', 'email', 'admin', 'password', 'wishlist'])
                 return Response(UserSerializer(user).data, status=status.HTTP_200_OK)
             else:
-                user = User(username=username, email=email, password=password, wishlist='')
+                user = User(username=username, email=email, password=password, admin=admin, wishlist='')
                 user.save()
                 return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
         

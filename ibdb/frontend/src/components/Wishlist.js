@@ -17,6 +17,7 @@ export default function ListPage() {
   
     function fetchBooks() {
       const bookIdsList = bookIds.split(";")
+      bookIdsList.shift()
       localStorage.setItem("wishlist", bookIds)
       const newBookList = bookIdsList.map(async bookId => {
       const response2 = await fetch(`/get-book?bookId=${bookId}`);
@@ -40,8 +41,10 @@ export default function ListPage() {
     return (
       <div className="widthsite">
         <div className="booksFrontpage">
-        <h1>Ønskeliste</h1>
-          <div className="book_grid">
+        <h1 className='categoryFrontpage'>Ønskeliste</h1>
+        <hr className="underlineFrontpage"></hr>
+
+          <div className="book_grid_wishlist">
             {bookList}
           </div>
         </div>

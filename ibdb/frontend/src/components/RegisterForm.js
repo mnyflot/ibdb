@@ -5,6 +5,7 @@ export default function RegisterForm() {
     const [newUsername, setUsername] = useState("")
     const [newPassword, setPassword] = useState("")
     const [newEmail, setEmail] = useState("")
+    const newAdmin = new Boolean(false);
 
     /* handleRegisterChange(event) {
         const target = event.target;
@@ -40,11 +41,12 @@ export default function RegisterForm() {
                     username: newUsername,
                     password: newPassword,
                     email: newEmail,
+                    admin: newAdmin,
                 }),
             };
             fetch("/register", requestOptions)
                 .then((response) => response.json())
-                .then((data) => window.location.href="/user/" + data.username);
+                .then((data) => window.location.href="/log-in");
         }
          
     }

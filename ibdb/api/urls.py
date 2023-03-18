@@ -17,9 +17,9 @@ urlpatterns = [
     path('get-book', GetBook.as_view()),
     path('get_all_books', get_all_books),
     path('search-title', SearchTitle.as_view()),
+    path('allUsers', GetUser.as_view()),
     path('users', UserView.as_view()),
     path('register', NewUserView.as_view()),
-    path('get-user', GetUser.as_view()),
     path('get-wishlist', GetWishlist.as_view()),
     path('add-to-wishlist', AddToWishlistView.as_view()),
 ]
