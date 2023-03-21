@@ -5,7 +5,7 @@ import ReviewForm from "./ReviewForm.js";
 
 
 
-export function ReviewPage() {
+export default function ReviewPage() {
     const { bookId } = useParams();
     const [book, setBook] = useState({
       title: '',
@@ -48,5 +48,3 @@ export function ReviewPage() {
 
 
 }
-
-export default ReviewPage;

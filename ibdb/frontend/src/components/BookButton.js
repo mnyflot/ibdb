@@ -11,7 +11,7 @@ export function BookButton() {
     
     const[books, setBooks] = useState([]);
     useEffect(() => {
-        fetch('books')
+        fetch('/books')
         .then(response => response.json())
         .then(data => setBooks(data))
     }, []);

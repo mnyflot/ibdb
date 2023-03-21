@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Link, Routes, Route, useNavigate, redirect} from 'react-router-dom';
+import LogInButton from "./LogInButton";
 
 
 export default function LogInForm () {
@@ -19,9 +20,9 @@ export default function LogInForm () {
         for (let i = 0; i < storedInfo.length; i++) {
           if (storedInfo[i].username == username && storedInfo[i].password == password) {
             hit = true;
-            window.location.href="/user/"+username
-            setUser(storedInfo)
-            localStorage.setItem("user", storedInfo?.[0]?.username)
+            window.location.href="/user/"+username;
+            setUser(storedInfo);
+            localStorage.setItem("user", storedInfo?.[0]?.username);
           }
         }
         if (hit == false) {

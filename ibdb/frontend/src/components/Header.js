@@ -16,7 +16,7 @@ export function Header() {
                 <SearchBar/>
             </div>
             <div className="logInButtonDiv">
-                <LogInButton/>
+                <LogInButton loggedIn={localStorage.getItem('user')} />
             </div> 
             
         </div>

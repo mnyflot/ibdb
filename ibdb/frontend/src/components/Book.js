@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import ReviewButton from './ReviewButton';
+import Review from './Review';
 
 export default function Book() {
   const { bookId } = useParams();
@@ -11,18 +12,29 @@ export default function Book() {
     description: '',
     author: '',
     year: '',
-    totalRatingScore: '',
-    numberOfRatings: '', 
+    totalRatingScore: 0,
+    numberOfRatings: 0, 
   });
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+      fetch('/reviews')
+      .then(response => response.json())
+      .then(data => setReviews(data))
+  }, []);
+
+  const reviewList = reviews
+  .filter(review => review.bookId === bookId)
+  .map(review => <Review key={review.id} review={review} />);
 
   useEffect(() => {
     fetch(`/get-book?bookId=${bookId}`)
       .then(response => response.json())
       .then(data => setBook(data))
       .catch(error => console.error(error));
-  }, [bookId]);
+  }, []);
 
   let overalRating = 0;
+
 
   if (book.numberOfRatings === 0){
     overalRating = 0;
@@ -55,6 +67,9 @@ export default function Book() {
                 <p> <b>OM BOKEN</b></p>
                 <p> {book.description}</p>
                 <ReviewButton/>
+            </div>
+            <div className='reviewDiv'>
+              {reviewList}
             </div>
         </div>
     </div>

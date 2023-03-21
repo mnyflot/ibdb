@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from django.http import JsonResponse
 
 from .models import User
@@ -38,6 +39,19 @@ class GetBook(APIView):
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'Book Not Found': 'Invalid Book ID'}, status=status.HTTP_404_NOT_FOUND)
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
+    # Funker ikke
+    def put(self, request, format=None):
+        bookId = request.PUT.get(self.lookuk_url_kwarg)
+        serializer = self.serializer_class(data=request.data)
+        if bookId != None:
+            book = Book.objects.filter(bookId=bookId)
+            if serializer.is_valid():
+                book.update(totalRatingScore=serializer.get(
+                    'totalRatingScore'))
+                book.update(numberOfRatings=serializer.get('numberOfRatings'))
+                return Response(BookSerializer(book).data, status=status.HTTP_200_OK)
+            return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class SearchTitle(APIView):
@@ -155,10 +169,19 @@ class NewReviewView(APIView):
             bookId = serializer.data.get('bookId')
             rating = serializer.data.get('rating')
             comment = serializer.data.get('comment')
-            review = Review(username=username, bookId=bookId,
-                            rating=rating, comment=comment)
-            review.save()
-            return Response(ReviewSerializer(review).data, status=status.HTTP_201_CREATED)
+            print(username)
+            queryset = Review.objects.filter(username=username, bookId=bookId)
+            if queryset.exists():
+                review = queryset[0]
+                review.rating = rating
+                review.comment = comment
+                review.save(update_fields=['rating', 'comment'])
+                return Response(UserSerializer(review).data, status=status.HTTP_200_OK)
+            else:
+                review = Review(username=username, bookId=bookId,
+                                rating=rating, comment=comment)
+                review.save()
+                return Response(UserSerializer(review).data, status=status.HTTP_201_CREATED)
 
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -166,3 +189,10 @@ class NewReviewView(APIView):
 class ReviewView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+
+@api_view(['DELETE'])
+def delete_review(request, name, id):
+    query = Review.objects.filter(username=name, bookId=id)
+    query.delete()
+    return JsonResponse("Review deleted")
