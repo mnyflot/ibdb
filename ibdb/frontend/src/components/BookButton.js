@@ -34,14 +34,14 @@ export function BookButton() {
     
     let sortedBooksRating = Array.from(bookList);
     sortedBooksRating.sort((a,b) =>{
-        console.log(a.props.totalRatingScore)
-        console.log(typeof a.props.numberOfRatings)
+        // console.log(a.props.totalRatingScore)
+        // console.log(typeof a.props.numberOfRatings)
         if(a.props.numberOfRatings === 0){
-            console.log("No ratings");
+            // console.log("No ratings");
             return 1;
         }
         else if (b.props.numberOfRatings === 0){
-            console.log("b first")
+            // console.log("b first")
             return -1;
         }
         else{

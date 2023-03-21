@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { useNavigate } from "react-router-dom";
 import LogInButton from "./LogInButton";
 import SearchBar from "./SearchBar";
+import MySiteButton from "./MySiteButton"
 
 
 
 export function Header() {
     
     const navigate = useNavigate();
+    //console.log(localStorage);
+
 
     return (
         <div className="header">
@@ -16,7 +19,14 @@ export function Header() {
                 <SearchBar/>
             </div>
             <div className="logInButtonDiv">
-                <LogInButton loggedIn={localStorage.getItem('user')} />
+                
+                {! localStorage.getItem('user') ?
+                        <LogInButton/> : null
+                        }
+                { localStorage.getItem('user') ?
+                      <MySiteButton></MySiteButton>
+                    : null
+                }
             </div> 
             
         </div>

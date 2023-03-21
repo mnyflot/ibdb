@@ -29,8 +29,8 @@ export default function SearchResultsPage() {
     );
 
     filteredBooks.forEach(book => {
-        console.log(book)
-        console.log(`/book/${book.bookId}`)
+        // console.log(book)
+        // console.log(`/book/${book.bookId}`)
     });
 
     return (

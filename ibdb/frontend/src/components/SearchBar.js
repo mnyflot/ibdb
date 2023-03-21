@@ -20,6 +20,8 @@ export default function SearchBar() {
         }
     };
 
+    
+
     const handleChange = (event) => {
         setSearch(event.target.value);
     }

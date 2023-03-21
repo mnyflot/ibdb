@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { AddToWishlist } from './AddToWishlist';
 import Header from './Header';
 import ReviewButton from './ReviewButton';
 import Review from './Review';
@@ -66,6 +67,7 @@ export default function Book() {
                 <hr></hr>
                 <p> <b>OM BOKEN</b></p>
                 <p> {book.description}</p>
+                <AddToWishlist />
                 <ReviewButton/>
             </div>
             <div className='reviewDiv'>

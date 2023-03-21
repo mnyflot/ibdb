@@ -27,7 +27,13 @@ class UserSerializer(serializers.ModelSerializer):
 class NewUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email', 'password')
+        fields = ('username', 'email', 'password', 'admin')
+
+
+class AddToWishlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'wishlist')
 
 
 class NewReviewSerializer(serializers.ModelSerializer):
