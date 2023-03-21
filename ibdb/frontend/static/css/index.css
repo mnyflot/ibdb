@@ -246,9 +246,9 @@ html,body {
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
-    background-color: rgb(245, 245, 245);
-    border-radius: 2%;
-    border-color: rgb(245, 245, 245);
+    border-style: solid;
+    border-radius: 2px;
+    border-color: #BDCDD6;
     
 }
 
@@ -377,7 +377,7 @@ html,body {
     display: grid;
     margin: auto;
     background-color: rgb(245, 245, 245);
-    border-radius: 2%;
+    border-radius: 2px;
     border-color: rgb(245, 245, 245); 
     padding: 30px;
 }
@@ -393,11 +393,12 @@ html,body {
 .newBookRegistration{
     display: grid ;
     row-gap: 10px;
-    width: 50%; 
+    width: 85%; 
     margin: auto; 
     padding: 30px;
     margin-bottom: 100px; 
-    background-color: #BDCDD6;
+    border: #BDCDD6;
+    border-style: solid;
     border-radius: 5px;
 }
 
@@ -423,7 +424,7 @@ html,body {
     background-color: #6096B4;
     color: black;
     border: 1px solid #6096B4;
-    border-radius: 4px;
+    border-radius: 2px;
     height: 40px;
     width: 100%;
     cursor: pointer;
@@ -453,10 +454,11 @@ html,body {
     margin-top: 40px;
     margin-bottom: 40px ;
     width: 75%;
-    background-color: #BDCDD6 ;
+    border: #BDCDD6;
+    border-style: solid;
     /* color: white; */
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 
@@ -484,3 +486,13 @@ html,body {
     margin-bottom: 10px;
 
 }
+
+
+.adminFeatures{
+    display: grid ;
+    grid-template-columns: 60% 40%;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
