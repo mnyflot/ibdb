@@ -8,8 +8,10 @@ from .views import NewUserView
 from .views import GetUser
 from .views import GetWishlist
 from .views import AddToWishlistView
+from .views import NewReviewView
+from .views import ReviewView
 from .views import get_all_books
-
+from .views import delete_review
 urlpatterns = [
     path('home', BookView.as_view()),
     path('books', BookView.as_view()),
@@ -22,4 +24,7 @@ urlpatterns = [
     path('register', NewUserView.as_view()),
     path('get-wishlist', GetWishlist.as_view()),
     path('add-to-wishlist', AddToWishlistView.as_view()),
+    path('new-review', NewReviewView.as_view()),
+    path('reviews', ReviewView.as_view()),
+    path('delete-review/<str:name>+<str:id>', delete_review),
 ]

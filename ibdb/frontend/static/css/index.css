@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     overflow: auto;
     height: 100%;
     width: 100%;
@@ -7,7 +8,7 @@ html,body {
     color: black;
     background-color: rgb(255, 255, 255);
     /* position: relative; */
-    
+
 }
 
 #main {
@@ -29,7 +30,11 @@ html,body {
     width: 80%;
 } */
 
-.buttonDefault{
+/* .widthsite{
+    width: 80%;
+} */
+
+.buttonDefault {
     background-color: white;
     color: black;
     border: 1px solid #6096B4;
@@ -40,13 +45,13 @@ html,body {
     cursor: pointer;
 }
 
-.buttonDefault:hover{
-    background-color:rgb(231, 227, 227);
+.buttonDefault:hover {
+    background-color: rgb(231, 227, 227);
 }
 
 
 /* Log-in page */
-.form{
+.form {
     border-style: solid;
     border-radius: 4px;
     border-width: 1px;
@@ -59,28 +64,28 @@ html,body {
     margin-left: -200px;
 }
 
-#formButton{
+#formButton {
     width: 90%;
     height: 30px;
     margin: 10px;
     align-items: center;
 }
 
-#registerNewUserButton{
+#registerNewUserButton {
     border-style: none;
     background-color: white;
     color: black;
     text-decoration-color: black;
-    
+
 }
 
-#registerNewUserButton:hover{
+#registerNewUserButton:hover {
     text-decoration: underline;
     color: blue;
     text-decoration-color: blue;
 }
 
-.loginInputField{
+.loginInputField {
     width: 90%;
     height: 30px;
     margin: 10px;
@@ -88,7 +93,7 @@ html,body {
     box-sizing: border-box;
 }
 
-.signInText{
+.signInText {
     text-align: center;
 }
 
@@ -98,7 +103,7 @@ html,body {
     color: black;
 }
 
-.searchField{
+.searchField {
     height: 25px;
     border-style: none;
     border-radius: 4px;
@@ -120,7 +125,7 @@ html,body {
 
 
 /* Header */
-.header{
+.header {
     height: 50px;
     background-color: #6096B4;
     border-bottom-style: solid;
@@ -135,7 +140,7 @@ html,body {
 
 }
 
-.nameInHeader{
+.nameInHeader {
     color: white;
     cursor: pointer;
 }
@@ -150,7 +155,7 @@ html,body {
 }
 
 /* BookButton class (should probably change name and/or structure soon) */
-.book{
+.book {
     cursor: pointer;
     padding-left: 20px;
     padding: 5px;
@@ -162,23 +167,23 @@ html,body {
     transition: box-shadow 0.15s;
 }
 
-.booksFrontpage{
+.booksFrontpage {
     margin: auto;
     margin-top: 10px;
 }
 
-.widthsite{
+.widthsite {
     margin: auto;
 }
 
 .book_grid {
-    display: grid ;
+    display: grid;
     grid-template-columns: 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px;
     grid-row: 1;
     overflow-x: scroll;
     row-gap: 10px;
-    width: 80%; 
-    margin: auto; 
+    width: 80%;
+    margin: auto;
     margin-bottom: 50px;
 }
 
@@ -194,16 +199,16 @@ html,body {
     cursor: pointer;
 }
 
-.categoryFrontpage{
+.categoryFrontpage {
     /* margin-left: 25px; */
     text-align: center;
     align-items: center;
     font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+
 }
 
-.underlineFrontpage{
+.underlineFrontpage {
     width: 80%;
 }
 
@@ -238,7 +243,7 @@ html,body {
 
 /* Book site */
 
-.bookMain{
+.bookMain {
     display: grid;
     grid-template-columns: 300px auto;
     width: 60%;
@@ -249,24 +254,29 @@ html,body {
     border-style: solid;
     border-radius: 2px;
     border-color: #BDCDD6;
-    
+
 }
 
-.bookImage{
+.bookImage {
     width: 50%;
 }
 
-.bookCover{
+.bookCover {
     width: 250px;
-} 
-.bookInformation{
-    width: 100%;
-    padding-left: 20px;
-    
 }
 
-#authorAndYear{
+.bookInformation {
+    width: 100%;
+    padding-left: 20px;
+
+}
+
+#authorAndYear {
     font-size: smaller;
+}
+
+.reviewDiv {
+    overflow: auto;
 }
 
 
@@ -301,7 +311,7 @@ html,body {
     margin: auto;
 }
 
-.searchPage{
+.searchPage {
     margin: auto;
 }
 
@@ -337,12 +347,32 @@ html,body {
     margin-bottom: 1px;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 
+.on {
+    color: #000;
+}
 
-.stars{
+.off {
+    color: #ccc;
+}
+
+/* Review elements */
+
+.stars {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     width: 80px;
+}
+
+.commentField {
+    width: 92%;
+    height: 200px;
 }
 
 
@@ -366,23 +396,23 @@ html,body {
     color: #444444;
 } */
 
-.createAdminUser{
-    
+.createAdminUser {
+
     margin: auto;
     width: 60%;
 }
 
-.createAdmin{
+.createAdmin {
     width: 60%;
     display: grid;
     margin: auto;
     background-color: rgb(245, 245, 245);
     border-radius: 2px;
-    border-color: rgb(245, 245, 245); 
+    border-color: rgb(245, 245, 245);
     padding: 30px;
 }
 
-.logoutButton{
+.logoutButton {
     display: flex;
     justify-content: flex-end;
     padding-right: 12px;
@@ -390,28 +420,28 @@ html,body {
 
 }
 
-.newBookRegistration{
-    display: grid ;
+.newBookRegistration {
+    display: grid;
     row-gap: 10px;
-    width: 85%; 
-    margin: auto; 
+    width: 85%;
+    margin: auto;
     padding: 30px;
-    margin-bottom: 100px; 
+    margin-bottom: 100px;
     border: #BDCDD6;
     border-style: solid;
     border-radius: 5px;
 }
 
-.newBookRegistration h3{
+.newBookRegistration h3 {
     margin-top: 0;
 }
 
-.newBookRegistration p{
+.newBookRegistration p {
     margin: 0;
 
 }
 
-.descriptionField{
+.descriptionField {
     overflow: hidden;
     min-height: 50px;
     max-height: 300px;
@@ -419,7 +449,7 @@ html,body {
 
 }
 
-.addBookButton{
+.addBookButton {
     margin-top: 10px;
     background-color: #6096B4;
     color: black;
@@ -429,7 +459,8 @@ html,body {
     width: 100%;
     cursor: pointer;
 }
-.addBookButton:hover{
+
+.addBookButton:hover {
     background-color: white;
 }
 
@@ -445,14 +476,14 @@ html,body {
     border-color: rgb(245, 245, 245);
 } */
 
-.newBookRegistration form{
+.newBookRegistration form {
     margin: 0px;
 }
 
-.myInformationBox{
+.myInformationBox {
     margin: auto;
     margin-top: 40px;
-    margin-bottom: 40px ;
+    margin-bottom: 40px;
     width: 75%;
     border: #BDCDD6;
     border-style: solid;
@@ -463,36 +494,45 @@ html,body {
 
 
 .book_grid_wishlist {
-    display: grid ;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
     /* grid-template-columns: 220px 220px 220px 220px 220px 220px 220px 220px 220px 220px; */
     /* grid-row: 1;
     overflow-x: scroll; */
     row-gap: 10px;
-    width: 88%; 
-    margin: auto; 
+    width: 88%;
+    margin: auto;
     margin-bottom: 50px;
 }
 
-.underlineMakeNewBook{
+.underlineMakeNewBook {
     width: 100%;
-    border-color:#BDCDD6;
+    border-color: #BDCDD6;
     border-radius: 0;
 }
 
-.newAdminInputField{
+.newAdminInputField {
     width: 99%;
     margin-top: 10px;
     margin-bottom: 10px;
 
+
 }
 
 
-.adminFeatures{
-    display: grid ;
+.adminFeatures {
+    display: grid;
     grid-template-columns: 60% 40%;
     width: 80%;
     margin: auto;
     margin-top: 40px;
 }
 
+
+.adminFeatures {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}

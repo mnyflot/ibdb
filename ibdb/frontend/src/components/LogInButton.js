@@ -5,11 +5,13 @@ class LogInButton extends Component {
         super(props);
     }
 
+
+
     render() {
         return (
             <div>
                 <a href="/log-in">
-                    <button className="buttonDefault" type="button">Log In</button>
+                    <button classname="buttonDefault" type="button">Log in</button>
                 </a>
             </div>
         );

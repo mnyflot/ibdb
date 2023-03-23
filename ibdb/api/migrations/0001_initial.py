@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Book',
             fields=[
-                ('bookId', models.CharField(default='', max_length=8, primary_key=True, serialize=False)),
+                ('bookId', models.CharField(default='',
+                 max_length=8, primary_key=True, serialize=False)),
                 ('title', models.CharField(default='', max_length=100)),
                 ('genre', models.CharField(default='', max_length=100)),
                 ('author', models.CharField(default='', max_length=50)),
@@ -23,6 +24,27 @@ class Migration(migrations.Migration):
                 ('totalRatingScore', models.PositiveSmallIntegerField(default=0)),
                 ('numberOfRatings', models.PositiveSmallIntegerField(default=0)),
                 ('imageURL', models.CharField(default='', max_length=1000)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Review',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('username', models.CharField(default='', max_length=20)),
+                ('bookId', models.CharField(default='', max_length=8)),
+                ('rating', models.PositiveSmallIntegerField(default=0)),
+                ('comment', models.CharField(default='', max_length=10000)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='User',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('email', models.CharField(default='', max_length=30)),
+                ('username', models.CharField(default='', max_length=20)),
+                ('password', models.CharField(default='', max_length=20)),
             ],
         ),
     ]
