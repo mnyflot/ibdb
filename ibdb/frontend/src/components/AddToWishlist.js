@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 export function AddToWishlist () {
     const { bookId } = useParams();
     const [buttonStr, setButtonStr] = useState('')
     const [username, setUsername] = useState('')
-    const navigate = useNavigate()
-    const location = useLocation();
-
-
-    // const handleClick = event => {
-    //     event.preventDefault();
-    //     navigate(`${location.pathname}`);
-    // };
 
 
     useEffect(() => {

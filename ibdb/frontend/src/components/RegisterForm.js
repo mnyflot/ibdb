@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 export default function RegisterForm() {
     
@@ -6,14 +6,6 @@ export default function RegisterForm() {
     const [newPassword, setPassword] = useState("")
     const [newEmail, setEmail] = useState("")
     const newAdmin = new Boolean(false);
-
-    /* handleRegisterChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        
-        this.setState({[name]: value});
-      } */
     
 
     async function handleRegisterSubmit(event) {
@@ -74,11 +66,6 @@ export default function RegisterForm() {
                                 className = "loginInputField" type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
                             </input>
                         </div>
-                        {/* <div>    
-                            <input
-                                className = "loginInputField" type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} onChange={this.handleRegisterChange} placeholder="Confirm Password*" required>
-                            </input>
-                        </div> */}
                         <div> 
                             <button type ="submit" className="buttonDefault" id="formButton">Sign up</button>
                         </div>            

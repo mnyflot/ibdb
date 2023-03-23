@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import AdminPage from './AdminPage.js';
 import Header from "./Header.js";
 import Review from './Review.js';
-import NewBookPage from "./NewBookPage"
 import Wishlist from "./Wishlist.js"
 
 export default function User() {
@@ -43,16 +42,6 @@ export default function User() {
 
   reviewList = reviewList
   .map(review => <Review review={review} />);
-
-  useEffect(() => {
-    // Fetch user data based on the username parameter
-    const loggedInUser = sessionStorage.getItem("user");
-    if (loggedInUser) {
-      const foundUser = loggedInUser;
-      // setUser(foundUser);
-    }
-    
-  }, []);
 
     function handleLogout(event){
         event.preventDefault();
@@ -94,18 +83,30 @@ export default function User() {
             <div>
                 <Wishlist />
             </div>
+            <div>  
+                <h1 className='categoryFrontpage'>Anmeldelser</h1>
+                <hr className="underlineFrontpage"></hr>
+                <div className='reviewDiv'>
+                {reviewList.map((review) => {
+                    let bookTitle = "";
+                    for (let i = 0; i < bookList.length; i++) {
+                        if (bookList[i].bookId == review.props.review.bookId) {
+                            bookTitle = bookList[i].title;
+                            break;
+                        }
+                    }
+                    return(
+                        <div>
+                            <p><b>{bookTitle} :</b> {review}</p>
+                            <p></p>
+                        </div>
+                    )
+                })}
+            </div>
             <div>
                 {(isAdmin) ? <AdminPage></AdminPage> : null }        
             </div>
 
-            <h1 className='categoryFrontpage'>Anmeldelser</h1>
-            <hr className="underlineFrontpage"></hr>
-            <div className='reviewDiv'>
-            {reviewList.map((review) => {
-                return(
-                    <div>{review}</div>
-                )
-            })}
             </div>
             </div>
     ) 

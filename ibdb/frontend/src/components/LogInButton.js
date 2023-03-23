@@ -11,7 +11,7 @@ class LogInButton extends Component {
         return (
             <div>
                 <a href="/log-in">
-                    <button classname="buttonDefault" type="button">Log in</button>
+                    <button className="buttonDefault" >Log in</button>
                 </a>
             </div>
         );

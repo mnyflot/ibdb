@@ -28,10 +28,6 @@ export default function SearchResultsPage() {
         `${book.author}`.toLowerCase().includes(searchQuery.toString().toLowerCase())
     );
 
-    filteredBooks.forEach(book => {
-        // console.log(book)
-        // console.log(`/book/${book.bookId}`)
-    });
 
     return (
         <div >
@@ -39,14 +35,14 @@ export default function SearchResultsPage() {
             {filteredBooks.length === 0 ? (
                 <div className="search-results-page"> 
                     <div className="search-results">
-                        <p>No search results for "{searchQuery}".</p>
+                        <p>Ingen resultater for "{searchQuery}".</p>
                     </div>
                 </div>
             ) : (
                 <div className="searchPage">
                     <div className="search-results">
                         <p>
-                            {searchQuery !== '' ? `Showing search results for "${searchQuery}"` : 'Showing all books'}
+                            {searchQuery !== '' ? `Viser resultater for "${searchQuery}"` : 'Viser alle bøker'}
                         </p>
                     </div>
                     <div className="book-search-container">

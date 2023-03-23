@@ -45,7 +45,7 @@ export default function CreateAdminUser() {
         return (
             <div className="newBookRegistration">
                 <div>
-                    <h3 className="categoryFrontpage">Register new admin user</h3>
+                    <h3 className="categoryFrontpage">Registrer ny administrator</h3>
                     <hr className="underlineMakeNewBook"></hr>
                 </div>
                     <form onSubmit={handleRegisterSubmit}>
@@ -64,7 +64,7 @@ export default function CreateAdminUser() {
                         </input>
                         
                        
-                         <button type ="submit" className="addBookButton">Registrer admin</button>
+                         <button type ="submit" className="addBookButton">Registrer</button>
                                 
                     </form>
             </div>  
