@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function ListPage() {
     const [bookIds, setBookIds] = useState("");
     const [bookList, setBookList] = useState([]);
-    const username = localStorage.getItem('user');
+    const username = sessionStorage.getItem('user');
     const navigate = useNavigate();
 
   
@@ -18,7 +18,7 @@ export default function ListPage() {
     function fetchBooks() {
       const bookIdsList = bookIds.split(";")
       bookIdsList.shift()
-      localStorage.setItem("wishlist", bookIds)
+      sessionStorage.setItem("wishlist", bookIds)
       const newBookList = bookIdsList.map(async bookId => {
       const response2 = await fetch(`/get-book?bookId=${bookId}`);
       const data2 = await response2.json();

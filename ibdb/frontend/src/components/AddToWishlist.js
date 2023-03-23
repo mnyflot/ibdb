@@ -17,7 +17,7 @@ export function AddToWishlist () {
 
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
+        const loggedInUser = sessionStorage.getItem("user");
         if (loggedInUser) {
           setUsername(loggedInUser);
           Promise.all([

@@ -10,7 +10,7 @@ export default function User() {
 
   useEffect(() => {
     // Fetch user data based on the username parameter
-    const loggedInUser = localStorage.getItem("user");
+    const loggedInUser = sessionStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = loggedInUser;
       setUser(foundUser);
@@ -20,19 +20,17 @@ export default function User() {
 
     function handleLogout(event){
         event.preventDefault();
-        const userExists = localStorage.getItem('user');
+        const userExists = sessionStorage.getItem('user');
         console.log(userExists)
         if (userExists){
-            localStorage.clear();
+            sessionStorage.clear();
         }
         window.location.href="../"
     }
-
-    console.log(localStorage.getItem("admin"))
     
     let isAdmin = false;
 
-    if (localStorage.getItem("admin") !== null){
+    if (sessionStorage.getItem("admin") !== null){
         isAdmin = true;
     }
 
@@ -54,8 +52,8 @@ export default function User() {
             
             <div className='myInformationBox'>
                 <b>Min informasjon</b>
-                <p>Brukernavn: {localStorage.getItem("user")}</p>
-                <p>Epost: {localStorage.getItem("email")}</p>
+                <p>Brukernavn: {sessionStorage.getItem("user")}</p>
+                <p>Epost: {sessionStorage.getItem("email")}</p>
             </div>
             
             <div>
