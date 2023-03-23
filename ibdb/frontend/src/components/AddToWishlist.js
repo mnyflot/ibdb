@@ -88,7 +88,7 @@ export function AddToWishlist () {
                 .then((response) => response.json());
         }
         })
-        alert("Boken er lagt til i din ønskeliste!");
+        alert("Suksess!");
     }
 
 

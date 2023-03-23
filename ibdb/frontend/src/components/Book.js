@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AddToWishlist } from './AddToWishlist';
 import Header from './Header';
+
 
 export default function Book() {
   const { bookId } = useParams();
@@ -35,10 +36,16 @@ export default function Book() {
     for (let index = 0; index < 5; index++) {
         index < Math.round(overalRating) ? stars.push(<div>&#9733;</div>) : stars.push(<div>&#9734;</div>);
     }
+const navigate = useNavigate();
+
 
   return (
     <div>
         <Header/>
+        <div className='logoutButton'>
+            <button className='buttonDefault' onClick={()=> navigate("/")}>Tilbake</button>
+        </div>
+
         <div className='bookMain'>
             <div className='bookImage'>
                 <img className='bookCover' src={book.imageURL}/>
