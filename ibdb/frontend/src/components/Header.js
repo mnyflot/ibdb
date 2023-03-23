@@ -9,8 +9,6 @@ import MySiteButton from "./MySiteButton"
 export function Header() {
     
     const navigate = useNavigate();
-    //console.log(localStorage);
-
 
     return (
         <div className="header">
@@ -20,10 +18,10 @@ export function Header() {
             </div>
             <div className="logInButtonDiv">
                 
-                {! localStorage.getItem('user') ?
+                {! sessionStorage.getItem('user') ?
                         <LogInButton/> : null
                         }
-                { localStorage.getItem('user') ?
+                { sessionStorage.getItem('user') ?
                       <MySiteButton></MySiteButton>
                     : null
                 }

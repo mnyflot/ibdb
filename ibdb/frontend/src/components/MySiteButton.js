@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export default function MySiteButton() {
-    const username = localStorage.getItem("user");
+    const username = sessionStorage.getItem("user");
     const navigate = useNavigate();
 
     const handleClick = event => {
