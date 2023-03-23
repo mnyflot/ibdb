@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from "./Header.js";
 import { useNavigate } from "react-router-dom";
 
-export default function ListPage() {
+export default function wishlist() {
     const [bookIds, setBookIds] = useState("");
     const [bookList, setBookList] = useState([]);
     const username = sessionStorage.getItem('user');

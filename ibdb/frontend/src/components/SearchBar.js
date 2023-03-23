@@ -41,7 +41,7 @@ export default function SearchBar() {
                 <input 
                     className='buttonDefault' 
                     type="submit" 
-                    value="Search"
+                    value="Søk"
                     onChange={(e) => setSearch(e.target.value)} />
             </form>
         </div>

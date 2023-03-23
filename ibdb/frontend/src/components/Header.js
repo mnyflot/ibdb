@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogInButton from "./LogInButton";
 import SearchBar from "./SearchBar";

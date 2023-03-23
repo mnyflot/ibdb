@@ -3,8 +3,6 @@ import LogInForm from "./LogInForm.js";
 import RegisterForm from "./RegisterForm.js";
 import Header from "./Header.js";
  
-import { BrowserRouter, Routes, Route, Link, Redirect } from "react-router-dom";
-
 export  class LogInPage extends Component {
     constructor(props) {
         super(props);
@@ -40,11 +38,11 @@ export  class LogInPage extends Component {
                 <div> 
                 <hr></hr>
                 {!this.state.registerClicked ?
-                    <button id="registerNewUserButton"  onClick={this.handleRegisterClickTrue} > <p>If you dont have an account, please register here</p></button>  
+                    <button id="registerNewUserButton"  onClick={this.handleRegisterClickTrue} > <p>Hvis du ikke har en bruker, registrer her</p></button>  
                     : null}
                 {this.state.registerClicked ?
-                    <p>Already an user? 
-                    <button id="registerNewUserButton"  onClick={this.handleRegisterClickFalse} ><p>LOGIN</p></button>  </p> 
+                    <p>Har du allerede en bruker? 
+                    <button id="registerNewUserButton"  onClick={this.handleRegisterClickFalse} ><p>Logg inn</p></button>  </p> 
                     : null}
                 </div>
                 </div>
