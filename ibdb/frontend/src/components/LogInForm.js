@@ -22,12 +22,12 @@ export default function LogInForm () {
           if (storedInfo[i].username == username && storedInfo[i].password == password) {
             hit = true;
             setUser(storedInfo[i])
-            localStorage.setItem("user", storedInfo?.[i]?.username)
-            localStorage.setItem("email", storedInfo?.[i]?.email)
+            sessionStorage.setItem("user", storedInfo?.[i]?.username)
+            sessionStorage.setItem("email", storedInfo?.[i]?.email)
 
             console.log("loginform" , storedInfo[i].admin)
             if (storedInfo[i].admin === true){
-                localStorage.setItem("admin", storedInfo?.[i]?.admin)
+                sessionStorage.setItem("admin", storedInfo?.[i]?.admin)
                 console.log("admin!!")
             }
             window.location.href="/user/"+username
