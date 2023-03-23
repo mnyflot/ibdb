@@ -36,7 +36,9 @@ export default function User() {
     return false;
   });
 
+  console.log("Reviews:")
   console.log(reviewList);
+  console.log("Books reviewed:")
   console.log(bookList);
 
   //<b>{bookList[reviewList.indexOf(review)].title}</b>
@@ -99,9 +101,15 @@ export default function User() {
                 {(isAdmin) ? <AdminPage></AdminPage> : null }        
             </div>
 
+            <h1 className='categoryFrontpage'>Anmeldelser</h1>
+            <hr className="underlineFrontpage"></hr>
             <div className='reviewDiv'>
+            {reviewList.map((review) => {
+                return(
+                    <div>{review}</div>
+                )
+            })}
             </div>
-            <p>{reviewList[0]}</p>
             </div>
     ) 
 }

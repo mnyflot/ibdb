@@ -33,6 +33,10 @@ export default function ReviewForm () {
         .then(data => setReviews(data))
         .catch(error => console.error(error));
     }, []);
+
+    useEffect(() => {
+        console.log("Rating updated: ", rating);
+    }, [rating]);
       
     async function handleSubmit(event) {
         event.preventDefault();
@@ -42,40 +46,19 @@ export default function ReviewForm () {
         let reviewList = reviews
         .filter(review => {
               if (bookId == review.bookId && localStorage.getItem('user') == review.username) {
-                console.log("Anmeldelsen finnes")
                 return true;
               }
-            console.log("Anmeldelsen finnes ikke")
             return false;
           });
 
           if (reviewList.length > 0) {
-            newTotalRating = newTotalRating - reviewList[0].rating + rating;
+            newTotalRating = book.totalRatingScore - reviewList[0].rating + rating;
             newNumberOfRatings = book.numberOfRatings;
           }
           else {
             newTotalRating = book.totalRatingScore + rating;
             newNumberOfRatings = book.numberOfRatings + 1;
           }
-
-          /*
-        const deleteOptions = {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username: localStorage.getItem('user'),
-                bookId: bookId,
-            })
-        }
-        
-        if (reviewList.length > 0) {
-            fetch(`/delete-review/${username}+${bookId}`, {
-                method: "DELETE",
-                headers: { "Content-Type": "application/json" },
-            })
-            .then(response => response.json());
-        }
-        */
 
         const requestOptions = {
             method: "POST",
@@ -90,21 +73,6 @@ export default function ReviewForm () {
     
         fetch("/new-review", requestOptions)
                 .then((response) => response.json());
-
-        /*
-        fetch(`/get-book?bookId=${bookId}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type" : "application/json"
-                },
-            body: JSON.stringify(
-                {
-                "totalRatingScore": newTotalRating,
-                "numberOfRatings": newNumberOfRatings
-                }
-            )
-            });
-        */
         
             const bookOptions = {
                 method: "PUT",
@@ -117,7 +85,7 @@ export default function ReviewForm () {
 
               fetch(`/get-book?bookId=${bookId}`, bookOptions)
                 .then((response) => response.json())
-                .then((data) => navigate("/book/" + data.bookId));
+                .then(() => navigate("/book/" + bookId));
 
         }
     
@@ -136,7 +104,10 @@ export default function ReviewForm () {
                             type="button"
                             key={index}
                             className={index <= (hover || rating) ? "on" : "off"}
-                            onClick={() => setRating(index)}
+                            onClick={() => 
+                                {
+                                    setRating(index)
+                                }}
                             onMouseEnter={() => setHover(index)}
                             onMouseLeave={() => setHover(rating)}
                         >

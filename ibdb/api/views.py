@@ -42,14 +42,15 @@ class GetBook(APIView):
 
     # Funker ikke
     def put(self, request, format=None):
-        bookId = request.PUT.get(self.lookuk_url_kwarg)
+        bookId = request.GET.get(self.lookuk_url_kwarg)
         serializer = self.serializer_class(data=request.data)
         if bookId != None:
             book = Book.objects.filter(bookId=bookId)
             if serializer.is_valid():
-                book.update(totalRatingScore=serializer.get(
+                book.update(totalRatingScore=serializer.data.get(
                     'totalRatingScore'))
-                book.update(numberOfRatings=serializer.get('numberOfRatings'))
+                book.update(numberOfRatings=serializer.data.get(
+                    'numberOfRatings'))
                 return Response(BookSerializer(book).data, status=status.HTTP_200_OK)
             return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
