@@ -47,27 +47,27 @@ export default function RegisterForm() {
         return (
             <div className="loginForm">
                 <div>
-                    <h3 className="signInText">Register new user</h3>
+                    <h3 className="signInText">Registrer ny bruker</h3>
                 </div>
                 <div >
                     <form onSubmit={handleRegisterSubmit} >
                         <div className="input-container">
                             <input
-                                className = "loginInputField" type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="Email address" required>
+                                className = "loginInputField" type ="text" name="newEmail"  value={newEmail}  onChange={(e) => setEmail(e.target.value)} placeholder="E-post" required>
                             </input>
                         </div>
                         <div className="input-container">
                             <input
-                                className = "loginInputField" type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
+                                className = "loginInputField" type ="text" name="newUsername"  value={newUsername}  onChange={(e) => setUsername(e.target.value)} placeholder="Brukernavn" required>
                             </input>
                         </div>
                         <div>
                             <input
-                                className = "loginInputField" type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
+                                className = "loginInputField" type="password" name="newpassword" value={newPassword} onChange={(e) => setPassword(e.target.value)} placeholder="Passord" required>
                             </input>
                         </div>
                         <div> 
-                            <button type ="submit" className="buttonDefault" id="formButton">Sign up</button>
+                            <button type ="submit" className="buttonDefault" id="formButton">Registrer bruker</button>
                         </div>            
                     </form>
                 </div>

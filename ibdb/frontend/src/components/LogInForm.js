@@ -47,22 +47,22 @@ export default function LogInForm () {
     return (
         <div className = "loginForm">
             <div>
-                <h3 className="signInText">Sign in</h3>
+                <h3 className="signInText">Logg inn</h3>
             </div>
             <div >
                 <form onSubmit={handleSubmit}>
                     <div>
                         <input
-                            className = "loginInputField" type ="text" name="username"  value={username}  onChange={(e) => setUsername(e.target.value)} placeholder="Username" required>
+                            className = "loginInputField" type ="text" name="username"  value={username}  onChange={(e) => setUsername(e.target.value)} placeholder="Brukernavn" required>
                         </input>
                     </div>
                     <div>
                         <input
-                            className = "loginInputField" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required>
+                            className = "loginInputField" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Passord" required>
                         </input>
                     </div>
                     <div> 
-                        <button className="buttonDefault" id="formButton" type="submit">Log in</button>
+                        <button className="buttonDefault" id="formButton" type="submit">Logg inn</button>
                     </div>
                 </form>
             </div>
