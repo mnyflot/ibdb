@@ -6,7 +6,7 @@ export function ReviewButton() {
     const navigate = useNavigate();
 
     return (
-        <button className="buttonDefault" onClick={() => {if (localStorage.getItem('user') != 'null') {
+        <button className="buttonDefault" onClick={() => {if (sessionStorage.getItem('user') != 'null') {
             navigate("/review/"+bookId)} else {alert('Vennligst logg inn for å legge igjen anmeldelse!')}}}>Vurder denne boken</button>
     )
 }

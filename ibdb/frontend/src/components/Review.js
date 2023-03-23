@@ -6,26 +6,29 @@ export default function Review({ review }) {
     const comment = review.comment;
     const bookId = review.bookId;
     let editButton = null;
-    let deleteButton = null;
+    // let deleteButton = null;
 
-    if (username == localStorage.getItem('user')) {
+    if (username == sessionStorage.getItem('user')) {
       editButton = <button className='buttonDefault' onClick={() => {window.location.href='/review/' + bookId}}>Endre vurdering</button>
     }
-    if (localStorage.getItem("admin") !== null){
+
+    /*
+    Knapp for å slette vurdering
+
+    if (sessionStorage.getItem("admin") !== null){
       deleteButton = <button className='buttonDefault' onClick={() => {
         fetch(`/delete-review/${username}+${bookId}`)
         .then((response) => response.json())
-        .then(window.location.href='/review/' + bookId)
         .catch(error => console.error(error));
       }}>Slett vurdering</button>
     }
+    */
 
     return (
       <div className="review">
         <p>
           <b>{username}</b> ({rating}/5): {comment}
           {editButton}
-          {deleteButton}
         </p>
       </div>
     );

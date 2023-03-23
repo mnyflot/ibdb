@@ -41,7 +41,6 @@ export default function User() {
   console.log("Books reviewed:")
   console.log(bookList);
 
-  //<b>{bookList[reviewList.indexOf(review)].title}</b>
   reviewList = reviewList
   .map(review => <Review review={review} />);
 

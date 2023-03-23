@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ReviewForm () {
     const navigate = useNavigate();
-    const username = localStorage.getItem('user');
+    const username = sessionStorage.getItem('user');
     const { bookId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [rating, setRating] = useState(0);
@@ -45,7 +45,7 @@ export default function ReviewForm () {
 
         let reviewList = reviews
         .filter(review => {
-              if (bookId == review.bookId && localStorage.getItem('user') == review.username) {
+              if (bookId == review.bookId && sessionStorage.getItem('user') == review.username) {
                 return true;
               }
             return false;
